@@ -160,7 +160,10 @@ export default function AdminCategories() {
                                             {cat.imageUrl ? (
                                                 <Image src={cat.imageUrl} alt={cat.name} fill className="object-cover" unoptimized={cat.imageUrl?.startsWith('data:')} />
                                             ) : (
-                                                <Folder size={20} className="sm:hidden" /> || <Folder size={24} className="hidden sm:block" />
+                                                <>
+                                                    <Folder size={20} className="sm:hidden" />
+                                                    <Folder size={24} className="hidden sm:block" />
+                                                </>
                                             )}
                                         </div>
                                         <div className="flex gap-0.5 sm:gap-1">
