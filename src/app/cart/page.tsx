@@ -50,7 +50,7 @@ export default function CartPage() {
                             <div key={item.id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 items-center">
                                 <Link href={`/product/${item.id}`} className="relative w-24 h-24 flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 hover:opacity-80 transition-opacity">
                                     <Image
-                                        src={item.imageUrl}
+                                        src={item.image}
                                         alt={item.name}
                                         fill
                                         className="object-contain p-2"
