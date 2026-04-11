@@ -5,8 +5,9 @@ import { LayoutGrid, Mail, Lock, ArrowRight, Facebook, Chrome, CheckCircle2, Ale
 import Link from 'next/link';
 import { useSession, signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function LoginPage() {
+function LoginContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const isRegistered = searchParams.get('registered') === 'true';
@@ -211,5 +212,17 @@ export default function LoginPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-[#f7f9fa] flex items-center justify-center p-6 text-slate-400 font-bold uppercase tracking-widest text-sm">
+                Cargando...
+            </div>
+        }>
+            <LoginContent />
+        </Suspense>
     );
 }
