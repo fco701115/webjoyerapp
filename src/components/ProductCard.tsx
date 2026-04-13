@@ -63,7 +63,7 @@ export function ProductCard({ product }: { product: Product }) {
             )}
 
             {/* Image Area */}
-            <div className="relative mx-auto w-full h-[140px] sm:h-[180px] p-2 sm:p-0">
+            <div className="relative mx-auto w-full h-[140px] sm:h-[180px] p-0">
                 <Link href={`/product/${product.id}`} className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-2xl hover:bg-slate-100/50 transition-all cursor-pointer overflow-hidden">
                     <Image
                         src={product.imageUrl}
