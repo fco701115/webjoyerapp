@@ -51,7 +51,7 @@ export function ProductCard({ product }: { product: Product }) {
     };
 
     return (
-        <div className="w-[168px] h-[308px] sm:w-full sm:max-w-[280px] sm:h-[370px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group">
+        <div className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group">
             {/* Discount Badge */}
             {(product.discountBadge || product.salePrice) && (
                 <div
