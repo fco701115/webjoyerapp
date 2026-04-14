@@ -51,7 +51,7 @@ export function ProductCard({ product }: { product: Product }) {
     };
 
     return (
-        <div className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group">
+        <div className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group">
             {/* Discount Badge */}
             {(product.discountBadge || product.salePrice) && (
                 <div
@@ -76,11 +76,11 @@ export function ProductCard({ product }: { product: Product }) {
                 {/* Wishlist Button */}
                 <button
                     onClick={handleWishlist}
-                    className="absolute right-2 bottom-2 z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all duration-300 shadow-md border-2 border-white/80 backdrop-blur-sm bg-white/90 group"
+                    className="absolute right-2 bottom-2 z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group"
                 >
                     <Heart 
                         size={16} 
-                        className={`transition-all duration-300 ${isFav ? 'text-red-500 fill-red-500 scale-110' : 'text-slate-400 group-hover:text-red-500'}`} 
+                        className={`transition-colors ${isFav ? 'text-red-500 fill-red-500 scale-110' : 'text-slate-400 group-hover:text-red-500'}`} 
                     />
                 </button>
             </div>
