@@ -73,7 +73,7 @@ export function Categories() {
     };
 
     return (
-        <div className="w-full mt-14 mb-8 max-w-[1200px] mx-auto px-4">
+        <div className="w-full mt-[30px] mb-[10px] max-w-[1200px] mx-auto px-4">
             {!mounted || (isLoading && categories.length === 0) ? (
                 <>
                     <div className="flex flex-col gap-1 mb-10">
@@ -114,7 +114,7 @@ export function Categories() {
                             onMouseLeave={handleMouseLeave}
                             onMouseUp={handleMouseUp}
                             onMouseMove={handleMouseMove}
-                            className={`flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 sm:gap-6 pb-6 select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                            className={`flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 sm:gap-6 pb-[10px] select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
                         >
                             {categories.map((c) => {
                                 const IconComponent = getIcon(c.name);
