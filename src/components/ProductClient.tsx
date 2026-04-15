@@ -157,7 +157,7 @@ export function ProductClient({ product, relatedProducts }: ProductClientProps) 
                 <div className="flex items-center gap-2 text-[13px] text-gray-400 mb-6 font-medium">
                     <Link href="/" className="hover:text-[#1a3da1] cursor-pointer">Inicio</Link>
                     <ChevronRight size={14} />
-                    <span className="hover:text-[#1a3da1] cursor-pointer">{product.category?.name || 'Productos'}</span>
+                    <span className="hover:text-[#1a3da1] cursor-pointer font-bold">{product.category?.name || 'Categoría'}</span>
                     <ChevronRight size={14} />
                     <span className="text-slate-900 truncate max-w-[200px]">{product.name}</span>
                 </div>
