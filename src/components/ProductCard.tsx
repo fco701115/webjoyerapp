@@ -50,8 +50,15 @@ export function ProductCard({ product }: { product: Product }) {
         toggleWishlist(product);
     };
 
+    const handleNavigate = () => {
+        router.push(`/product/${product.id}`);
+    };
+
     return (
-        <div className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group">
+        <div 
+            onClick={handleNavigate}
+            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#173495] p-2 sm:p-[13px] bg-white relative hover:shadow-lg transition-shadow flex flex-col mx-auto rounded-[5px] overflow-hidden group cursor-pointer"
+        >
             {/* Discount Badge */}
             {(product.discountBadge || product.salePrice) && (
                 <div
@@ -64,7 +71,7 @@ export function ProductCard({ product }: { product: Product }) {
 
             {/* Image Area */}
             <div className="relative mx-auto w-full h-[140px] sm:h-[180px] p-0">
-                <Link href={`/product/${product.id}`} className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-2xl hover:bg-slate-100/50 transition-all cursor-pointer overflow-hidden">
+                <div className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-2xl group-hover:bg-slate-100/50 transition-all overflow-hidden">
                     <Image
                         src={product.imageUrl}
                         alt={product.name}
@@ -72,26 +79,24 @@ export function ProductCard({ product }: { product: Product }) {
                         sizes="(max-width: 640px) 50vw, 180px"
                         className="object-contain group-hover:scale-110 transition-transform duration-500"
                     />
-                </Link>
+                </div>
                 {/* Wishlist Button */}
                 <button
                     onClick={handleWishlist}
-                    className="absolute right-2 bottom-2 z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group"
+                    className="absolute right-2 bottom-2 z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-colors shadow-sm border border-slate-200 bg-white group/fav"
                 >
                     <Heart 
                         size={16} 
-                        className={`transition-colors ${isFav ? 'text-red-500 fill-red-500 scale-110' : 'text-slate-400 group-hover:text-red-500'}`} 
+                        className={`transition-colors ${isFav ? 'text-red-500 fill-red-500 scale-110' : 'text-slate-400 group-hover/fav:text-red-500'}`} 
                     />
                 </button>
             </div>
 
             {/* Product Name Area */}
             <div className="w-full px-1 mt-4">
-                <Link href={`/product/${product.id}`}>
-                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight cursor-pointer hover:text-[#1a3da1] transition-colors h-[36px]">
-                        {product.name}
-                    </h3>
-                </Link>
+                <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] group-hover:text-[#1a3da1] transition-colors">
+                    {product.name}
+                </h3>
             </div>
 
             {/* Rating Area */}

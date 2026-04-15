@@ -43,6 +43,7 @@ export function CategoriesMenu() {
     }, []);
 
     const getIcon = (name: string) => {
+        if (!name) return <Laptop size={20} />;
         const n = name.toLowerCase();
         if (n.includes('lap') || n.includes('comp')) return <Laptop size={20} />;
         if (n.includes('smart') || n.includes('tab') || n.includes('celu')) return <Smartphone size={20} />;
@@ -93,7 +94,13 @@ export function CategoriesMenu() {
                             <div className="flex items-center gap-4">
                                 <span className="text-gray-400 group-hover:text-[#1a3da1] group-hover:scale-110 transition-all w-8 h-8 flex items-center justify-center relative overflow-hidden rounded-lg">
                                     {cat.imageUrl ? (
-                                        <Image src={cat.imageUrl} alt={cat.name} fill className="object-cover" />
+                                        <Image 
+                                            src={cat.imageUrl} 
+                                            alt={cat.name || 'Categoría'} 
+                                            fill 
+                                            className="object-cover" 
+                                            unoptimized={cat.imageUrl && cat.imageUrl.startsWith('data:')}
+                                        />
                                     ) : (
                                         getIcon(cat.name)
                                     )}

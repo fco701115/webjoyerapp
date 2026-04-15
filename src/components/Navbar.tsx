@@ -46,6 +46,7 @@ export function Navbar() {
     );
 
     const getIcon = (name: string) => {
+        if (!name) return <Laptop size={18} />;
         const n = name.toLowerCase();
         if (n.includes('lap') || n.includes('comp')) return <Laptop size={18} />;
         if (n.includes('smart') || n.includes('tab') || n.includes('celu')) return <Smartphone size={18} />;
@@ -92,10 +93,10 @@ export function Navbar() {
                                                     <div className="relative w-full h-full overflow-hidden rounded-sm">
                                                         <Image
                                                             src={cat.imageUrl}
-                                                            alt={cat.name}
+                                                            alt={cat.name || 'Categoría'}
                                                             fill
                                                             className="object-cover"
-                                                            unoptimized={cat.imageUrl.startsWith('data:')}
+                                                            unoptimized={cat.imageUrl && cat.imageUrl.startsWith('data:')}
                                                         />
                                                     </div>
                                                 ) : (

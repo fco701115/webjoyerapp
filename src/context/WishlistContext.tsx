@@ -48,7 +48,13 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
 
         const checkUser = () => {
             const saved = localStorage.getItem('user');
-            if (saved) setLocalUser(JSON.parse(saved));
+            if (saved) {
+                try {
+                    setLocalUser(JSON.parse(saved));
+                } catch (e) {
+                    console.error('Failed to parse local user in wishlist');
+                }
+            }
         };
         checkUser();
         window.addEventListener('local-user-updated', checkUser);
