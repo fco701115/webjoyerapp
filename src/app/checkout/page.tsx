@@ -35,40 +35,67 @@ export default function CheckoutPage() {
     const [paymentMethod, setPaymentMethod] = useState('CASH');
 
     React.useEffect(() => {
-        const loadUserData = (email: string, name: string) => {
-            if (!formData.email) {
-                const parts = name.split(' ');
-                setFormData(prev => ({
-                    ...prev,
-                    email: email,
-                    firstName: prev.firstName || parts[0] || '',
-                    lastName: prev.lastName || parts.slice(1).join(' ') || ''
-                }));
-            }
+        const loadUserData = async (email: string, name: string) => {
+            // Pre-fill basic info
+            const parts = name.split(' ');
+            setFormData(prev => ({
+                ...prev,
+                email: email,
+                firstName: prev.firstName || parts[0] || '',
+                lastName: prev.lastName || parts.slice(1).join(' ') || ''
+            }));
+
+            let parsedAddresses: any[] = [];
             
+            // 1. Try to load from localStorage first (for speed)
             const stored = localStorage.getItem(`addresses_${email}`);
             if (stored) {
-                const parsedAddresses = JSON.parse(stored);
-                setSavedAddresses(parsedAddresses);
-                if (parsedAddresses.length > 0) {
-                    const addr = parsedAddresses[0];
-                    setFormData(prev => ({
-                        ...prev,
-                        firstName: addr.contactName ? addr.contactName.split(' ')[0] : prev.firstName,
-                        lastName: addr.contactName ? addr.contactName.split(' ').slice(1).join(' ') : prev.lastName,
-                        address: addr.street || prev.address,
-                        neighborhood: addr.neighborhood || '',
-                        locality: addr.locality || '',
-                        city: addr.city || '',
-                        postalCode: addr.postalCode || '',
-                        indications: addr.indications || '',
-                        phone: addr.phone || prev.phone
-                    } as any));
-                    setShowAddressForm(false);
-                    setSelectedAddressIndex(0);
-                } else {
-                    setShowAddressForm(true);
+                try {
+                    parsedAddresses = JSON.parse(stored);
+                } catch (e) {
+                    console.error('Error parsing local addresses');
                 }
+            }
+
+            // 2. If authenticated and no local addresses (or just to keep in sync), fetch from DB
+            if (status === 'authenticated') {
+                try {
+                    const res = await fetch('/api/users');
+                    const allUsers = await res.json();
+                    if (Array.isArray(allUsers)) {
+                        const dbUser = allUsers.find((u: any) => u.email?.toLowerCase() === email.toLowerCase());
+                        if (dbUser && dbUser.addresses) {
+                            const dbAddresses = JSON.parse(dbUser.addresses);
+                            if (Array.isArray(dbAddresses) && dbAddresses.length > 0) {
+                                // Prioritize DB addresses or merge
+                                parsedAddresses = dbAddresses;
+                                // Sync local storage
+                                localStorage.setItem(`addresses_${email}`, JSON.stringify(dbAddresses));
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error('Failed to fetch user addresses from DB:', error);
+                }
+            }
+            
+            if (parsedAddresses.length > 0) {
+                setSavedAddresses(parsedAddresses);
+                const addr = parsedAddresses[0];
+                setFormData(prev => ({
+                    ...prev,
+                    firstName: addr.contactName ? addr.contactName.split(' ')[0] : prev.firstName,
+                    lastName: addr.contactName ? addr.contactName.split(' ').slice(1).join(' ') : prev.lastName,
+                    address: addr.street || prev.address,
+                    neighborhood: addr.neighborhood || '',
+                    locality: addr.locality || '',
+                    city: addr.city || '',
+                    postalCode: addr.postalCode || '',
+                    indications: addr.indications || '',
+                    phone: addr.phone || prev.phone
+                }));
+                setShowAddressForm(false);
+                setSelectedAddressIndex(0);
             } else {
                 setShowAddressForm(true);
             }
@@ -79,8 +106,14 @@ export default function CheckoutPage() {
         } else if (status === 'unauthenticated') {
             const localUser = localStorage.getItem('user');
             if (localUser) {
-                const parsed = JSON.parse(localUser);
-                loadUserData(parsed.email, parsed.name || '');
+                try {
+                    const parsed = JSON.parse(localUser);
+                    if (parsed && parsed.email) {
+                        loadUserData(parsed.email, parsed.name || '');
+                    }
+                } catch (e) {
+                    console.error('Error parsing local user');
+                }
             }
         }
     }, [session, status]);
