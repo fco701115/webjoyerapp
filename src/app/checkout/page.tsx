@@ -224,7 +224,7 @@ export default function CheckoutPage() {
                             </h2>
 
                             {!showAddressForm && savedAddresses.length > 0 ? (
-                                <div className="p-6 border-2 border-[#1a3da1] rounded-2xl bg-[#1a3da1]/5 flex justify-between items-start group relative mb-8">
+                                <div className="p-4 border-2 border-[#1a3da1] rounded-2xl bg-[#1a3da1]/5 flex justify-between items-start group relative mb-8">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 bg-white rounded-xl shadow-sm text-[#1a3da1] flex items-center justify-center border border-[#1a3da1]/20 mt-1">
                                             <MapPin size={24} />
@@ -474,7 +474,7 @@ export default function CheckoutPage() {
 
                     {/* Summary side */}
                     <div className="lg:col-span-5">
-                        <div className="bg-slate-900 text-white rounded-[8px] shadow-2xl p-8 md:p-10 sticky top-24">
+                        <div className="bg-slate-900 text-white rounded-[8px] shadow-2xl p-4 sticky top-24">
                             <h3 className="text-[22px] font-black uppercase tracking-tighter mb-8 border-b border-white/10 pb-6">Resumen del Pedido</h3>
 
                             <div className="space-y-6 mb-10 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
