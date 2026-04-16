@@ -117,7 +117,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                             {sliders.length > 0 && sliders.map((slider, index) => (
                                 <div
                                     key={slider.id}
-                                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlider ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                                    className={`absolute inset-0 p-2 transition-opacity duration-1000 ease-in-out ${index === currentSlider ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                                 >
                                     {/* Background Image / Overlay */}
                                     {slider.image ? (
@@ -158,7 +158,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                         <span className="text-cyan-300 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-1">
                                             {slider.subtitle || 'OFERTA ESPECIAL'}
                                         </span>
-                                        <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[250px] h-[60px] sm:w-auto sm:h-auto overflow-hidden">
+                                        <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-2 tracking-tight leading-tight capitalize w-[240px] h-[60px] sm:w-auto sm:h-auto overflow-hidden">
                                             {slider.title}
                                         </h2>
                                         <p className="text-xs sm:text-sm md:text-lg text-gray-100 mb-4 md:mb-8 font-medium w-[150px] h-[32px] sm:w-auto sm:h-auto md:max-w-[450px] overflow-hidden">
