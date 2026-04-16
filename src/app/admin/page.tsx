@@ -175,23 +175,25 @@ export default function AdminDashboard() {
             {/* Analytics & Recent Activity */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                 {/* Sales Chart - Premium Visualization */}
-                <div className="lg:col-span-2 bg-white rounded-[48px] border border-slate-100 p-10 shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8">
-                         <div className="flex bg-slate-50 p-1 rounded-xl">
-                             {['Week', 'Month', 'Year'].map(t => (
-                                 <button key={t} className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>
-                                     {t}
-                                 </button>
-                             ))}
-                         </div>
-                    </div>
-                    
-                    <div className="space-y-2 mb-10">
-                        <h3 className="text-2xl font-black text-slate-900 tracking-tight">Análisis de Ingresos</h3>
-                        <p className="text-slate-400 font-bold text-[14px]">Comparativa de crecimiento mensual del semestre actual.</p>
+                <div className="lg:col-span-2 bg-white rounded-[48px] border border-slate-100 p-4 shadow-sm relative overflow-hidden">
+                    <div className="space-y-6 mb-10">
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-black text-slate-900 tracking-tight">Análisis de Ingresos</h3>
+                            <p className="text-slate-400 font-bold text-[14px]">Comparativa de crecimiento mensual del semestre actual.</p>
+                        </div>
+                        
+                        <div className="sm:absolute sm:top-0 sm:right-0 sm:p-8 p-4">
+                             <div className="flex bg-slate-50 p-1 rounded-xl w-fit">
+                                 {['Week', 'Month', 'Year'].map(t => (
+                                     <button key={t} className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>
+                                         {t}
+                                     </button>
+                                 ))}
+                             </div>
+                        </div>
                     </div>
 
-                    <div className="h-80 w-full flex items-end justify-between px-4 pb-4 gap-6">
+                    <div className="h-56 w-full flex items-end justify-between px-4 pb-4 gap-6">
                         {data?.revenueByMonth?.map((item: any, i: number) => {
                             const heightPercentage = Math.max((item.revenue / maxRevenue) * 100, 8);
                             return (
@@ -218,7 +220,7 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Recent Orders - Modern List Styling */}
-                <div className="bg-white rounded-[48px] border border-slate-100 p-10 shadow-sm flex flex-col">
+                <div className="bg-white rounded-[48px] border border-slate-100 p-4 sm:p-10 shadow-sm flex flex-col">
                     <div className="flex items-center justify-between mb-10">
                         <div className="space-y-1">
                             <h3 className="text-xl font-black text-slate-900 tracking-tight">Actividad</h3>
