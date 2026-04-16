@@ -93,7 +93,7 @@ export function ProductCard({ product }: { product: Product }) {
                 </div>
 
                 {/* Rating Area */}
-                <div className="w-full px-1 mt-2 flex items-center text-amber-400 gap-[2px]">
+                <div className="w-full px-1 mt-2 sm:mt-[5px] flex items-center text-amber-400 gap-[2px]">
                     {Array.from({ length: 5 }).map((_, i) => (
                         <i
                             key={i}
