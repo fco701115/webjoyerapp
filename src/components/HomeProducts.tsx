@@ -1,15 +1,24 @@
 import { prisma } from '@/lib/prisma';
 import { ProductCard } from '@/components/ProductCard';
+import { unstable_cache } from 'next/cache';
 
-export async function HomeProducts() {
-    try {
-        // Fetch first 10 products directly from the database
-        const products = await prisma.product.findMany({
+// Cached function to fetch home products
+const getHomeProducts = unstable_cache(
+    async () => {
+        return await prisma.product.findMany({
             where: { isVisible: true },
             include: { category: true },
             orderBy: { createdAt: 'desc' },
             take: 10
         });
+    },
+    ['home-products'],
+    { revalidate: 3600, tags: ['products'] }
+);
+
+export async function HomeProducts() {
+    try {
+        const products = await getHomeProducts();
 
         if (products.length === 0) {
             return (
@@ -55,3 +64,4 @@ export async function HomeProducts() {
         );
     }
 }
+

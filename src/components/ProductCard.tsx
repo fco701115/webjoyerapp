@@ -133,7 +133,7 @@ export function ProductCard({ product }: { product: Product }) {
             </button>
 
             {/* Actions Area */}
-            <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-[2px] mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2 relative z-10">
+            <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-0 mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2 relative z-10">
                 <button
                     onClick={handleBuyNow}
                     className="flex-1 h-[35px] bg-[#1c3892] hover:bg-blue-800 text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
