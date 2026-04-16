@@ -1,27 +1,39 @@
-export const revalidate = 60;
-
 import { Hero } from '@/components/Hero';
 import { Categories } from '@/components/Categories';
 import { PromoBanners } from '@/components/PromoBanners';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { HomeProducts } from '@/components/HomeProducts';
 import { prisma } from '@/lib/prisma';
+import { unstable_cache } from 'next/cache';
+
+// Cached function to fetch layout-critical data
+const getBanners = unstable_cache(
+  async () => {
+    return await prisma.banner.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
+  },
+  ['home-banners'],
+  { revalidate: 3600, tags: ['banners'] }
+);
 
 export default async function Home() {
   // Fetch initial data on the server for instant loading
-  const [categories, sliders] = await Promise.all([
+  const [categories, sliders, banners] = await Promise.all([
     prisma.category.findMany({
       orderBy: { name: 'asc' }
     }),
     prisma.slider.findMany({
       where: { status: 'ACTIVE' },
       orderBy: { order: 'asc' }
-    })
+    }),
+    getBanners()
   ]);
 
   // Sanitize data for Client Components (convert Dates to strings)
   const serializedCategories = JSON.parse(JSON.stringify(categories));
   const serializedSliders = JSON.parse(JSON.stringify(sliders));
+  const serializedBanners = JSON.parse(JSON.stringify(banners));
 
   return (
     <>
@@ -46,8 +58,9 @@ export default async function Home() {
         <HomeProducts />
       </div>
 
-      <PromoBanners />
+      <PromoBanners initialBanners={serializedBanners} />
       <FeaturesSection />
     </>
   );
 }
+
