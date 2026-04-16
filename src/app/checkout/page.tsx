@@ -587,9 +587,9 @@ export default function CheckoutPage() {
                                         {idx === selectedAddressIndex && <div className="w-2.5 h-2.5 bg-[#1a3da1] rounded-full" />}
                                     </div>
                                     
-                                    <p className="font-black text-slate-900 mb-1">{addr.title || 'Dirección'}</p>
+                                    <p className="font-black text-slate-900 mb-1">{addr.type || addr.title || 'Dirección'}</p>
                                     <p className="text-sm text-slate-600 leading-tight">{addr.street}</p>
-                                    <p className="text-sm text-slate-500 leading-tight mt-0.5">{addr.city}</p>
+                                    {addr.locality && <p className="text-sm text-slate-500 leading-tight mt-0.5">{addr.locality}</p>}
                                 </div>
                             ))}
                         </div>
