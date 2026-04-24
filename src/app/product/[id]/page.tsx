@@ -77,12 +77,12 @@ export default async function Page({ params }: Props) {
         salePrice: product.salePrice ? Number(product.salePrice) : null,
         images: parseImages(product.images),
         // Convirtiendo fechas a strings para evitar problemas de serialización
-        createdAt: product.createdAt.toISOString(),
-        updatedAt: product.updatedAt.toISOString(),
+        createdAt: new Date(product.createdAt).toISOString(),
+        updatedAt: new Date(product.updatedAt).toISOString(),
         category: product.category ? {
             ...product.category,
-            createdAt: product.category.createdAt.toISOString(),
-            updatedAt: product.category.updatedAt.toISOString(),
+            createdAt: new Date(product.category.createdAt).toISOString(),
+            updatedAt: new Date(product.category.updatedAt).toISOString(),
         } : null
     };
 
