@@ -18,17 +18,12 @@ export default async function SearchPage({
     const maxPrice = typeof params.maxPrice === 'string' ? params.maxPrice : '';
     const sort = typeof params.sort === 'string' ? params.sort : 'newest';
 
-    // Fetch Categories
-    const categories = await prisma.category.findMany({
-        orderBy: { name: 'asc' }
-    });
-
     // Build Prisma query
     const where: any = { isVisible: true };
     if (query) {
         where.OR = [
-            { name: { contains: query } },
-            { description: { contains: query } }
+            { name: { contains: query, mode: 'insensitive' } },
+            { description: { contains: query, mode: 'insensitive' } }
         ];
     }
     if (categoryId) where.categoryId = categoryId;
@@ -42,11 +37,17 @@ export default async function SearchPage({
     if (sort === 'price_asc') orderBy = { price: 'asc' };
     if (sort === 'price_desc') orderBy = { price: 'desc' };
 
-    const products = await prisma.product.findMany({
-        where,
-        include: { category: true },
-        orderBy
-    });
+    // Fetch Categories and Products in parallel
+    const [categories, products] = await Promise.all([
+        prisma.category.findMany({
+            orderBy: { name: 'asc' }
+        }),
+        prisma.product.findMany({
+            where,
+            include: { category: true },
+            orderBy
+        })
+    ]);
 
     const formattedProducts = products.map(p => {
         const images = typeof p.images === 'string' ? JSON.parse(p.images) : p.images;

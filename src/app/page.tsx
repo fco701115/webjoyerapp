@@ -17,16 +17,32 @@ const getBanners = unstable_cache(
   { revalidate: 3600, tags: ['banners'] }
 );
 
+const getCategories = unstable_cache(
+  async () => {
+    return await prisma.category.findMany({
+      orderBy: { name: 'asc' }
+    });
+  },
+  ['home-categories'],
+  { revalidate: 3600, tags: ['categories'] }
+);
+
+const getSliders = unstable_cache(
+  async () => {
+    return await prisma.slider.findMany({
+      where: { status: 'ACTIVE' },
+      orderBy: { order: 'asc' }
+    });
+  },
+  ['home-sliders'],
+  { revalidate: 3600, tags: ['sliders'] }
+);
+
 export default async function Home() {
   // Fetch initial data on the server for instant loading
   const [categories, sliders, banners] = await Promise.all([
-    prisma.category.findMany({
-      orderBy: { name: 'asc' }
-    }),
-    prisma.slider.findMany({
-      where: { status: 'ACTIVE' },
-      orderBy: { order: 'asc' }
-    }),
+    getCategories(),
+    getSliders(),
     getBanners()
   ]);
 

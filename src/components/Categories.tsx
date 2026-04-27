@@ -125,6 +125,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                     <Link
                                         href={`/search?category=${c.id}`}
                                         key={c.id}
+                                        prefetch={true}
                                         className="flex-shrink-0 w-[30%] sm:w-[30%] md:w-[22%] lg:w-[15%] snap-start flex flex-col items-center justify-center gap-5 group cursor-pointer"
                                     >
                                         <div className="w-[85px] h-[85px] sm:w-[100px] md:w-[120px] md:h-[120px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex items-center justify-center text-slate-400 group-hover:border-[#173495] group-hover:text-[#173495] group-hover:bg-blue-50/30 group-hover:shadow-2xl group-hover:shadow-blue-500/10 transition-all duration-500 ease-out overflow-hidden relative">
