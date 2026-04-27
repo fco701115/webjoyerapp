@@ -30,6 +30,8 @@ export default function CheckoutPage() {
         city: '',
         postalCode: '',
         phone: '',
+        indications: '',
+        addressType: 'Casa', // 'Casa', 'Trabajo', 'Lugar'
     });
 
     const [paymentMethod, setPaymentMethod] = useState('CASH');
@@ -132,13 +134,13 @@ export default function CheckoutPage() {
                     locality: formData.locality,
                     city: formData.city,
                     postalCode: formData.postalCode,
-                    indications: (formData as any).indications || ''
+                    indications: formData.indications || ''
                 };
 
-            const addressTitle = currentAddr.title || 'Dirección';
+            const addressTitle = currentAddr.title || formData.addressType || 'Dirección';
             
             // Structured Address String: [Type] Street, Neighborhood, Locality, City. (Ind: ...) (CP: ...) Tel: ...
-            const structuredAddress = `[${addressTitle}] ${currentAddr.street.trim()}, ${currentAddr.neighborhood.trim()}, ${currentAddr.locality.trim()}, ${currentAddr.city.trim()}. ${currentAddr.indications ? `(Ind: ${currentAddr.indications.trim()}) ` : ''}${currentAddr.postalCode ? `(CP: ${currentAddr.postalCode.trim()}) ` : ''}Tel: ${formData.phone.trim()}`;
+            const structuredAddress = `[${addressTitle}] ${currentAddr.street.trim()}, ${currentAddr.neighborhood?.trim() || ''}, ${currentAddr.locality?.trim() || ''}, ${currentAddr.city?.trim() || ''}. ${currentAddr.indications ? `(Ind: ${currentAddr.indications.trim()}) ` : ''}${currentAddr.postalCode ? `(CP: ${currentAddr.postalCode.trim()}) ` : ''}Tel: ${formData.phone.trim()}`;
 
             const res = await fetch('/api/orders', {
                 method: 'POST',
@@ -301,160 +303,186 @@ export default function CheckoutPage() {
                             <form onSubmit={handleCheckout} className="space-y-6">
                                 {showAddressForm && (
                                     <>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        {/* Step 1: Datos Personales */}
+                                        <div className="space-y-6 mb-12">
+                                            <div className="flex items-baseline gap-2 mb-8">
+                                                <span className="text-[18px] font-bold text-slate-900">1</span>
+                                                <h3 className="text-[18px] font-bold text-slate-900 tracking-tight"><span className="border-b-2 border-slate-300">Datos</span> de Personales:</h3>
+                                            </div>
+
                                             <div className="flex flex-col gap-2">
-                                                <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Nombre</label>
+                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Nombre y Apellido:</label>
                                                 <input
                                                     required
-                                                    value={formData.firstName}
-                                                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                                                    value={`${formData.firstName} ${formData.lastName}`.trim()}
+                                                    onChange={(e) => {
+                                                        const val = e.target.value;
+                                                        const parts = val.split(' ');
+                                                        setFormData({ 
+                                                            ...formData, 
+                                                            firstName: parts[0] || '', 
+                                                            lastName: parts.slice(1).join(' ') || '' 
+                                                        });
+                                                    }}
                                                     type="text"
-                                                    placeholder="Juan"
-                                                    className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
+                                                    className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                 />
                                             </div>
-                                            <div className="flex flex-col gap-2">
-                                                <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Apellido</label>
-                                                <input
-                                                    required
-                                                    value={formData.lastName}
-                                                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                                                    type="text"
-                                                    placeholder="Pérez"
-                                                    className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                                />
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="flex flex-col gap-2">
+                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Teléfono:</label>
+                                                    <input
+                                                        required
+                                                        value={formData.phone}
+                                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                                        type="tel"
+                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Correo Electrónico:</label>
+                                                    <input
+                                                        required
+                                                        value={formData.email}
+                                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                        type="email"
+                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div className="flex flex-col gap-2">
-                                            <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Correo Electrónico</label>
-                                            <input
-                                                required
-                                                value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                type="email"
-                                                placeholder="juan@ejemplo.com"
-                                                className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                            />
-                                        </div>
+                                        {/* Step 2: Dirección de Envío */}
+                                        <div className="space-y-6 mb-12">
+                                            <div className="flex items-baseline gap-2 mb-8">
+                                                <span className="text-[18px] font-bold text-slate-900">2</span>
+                                                <h3 className="text-[18px] font-bold text-slate-900 tracking-tight"><span className="border-b-2 border-slate-300">Dirección</span> de envió:</h3>
+                                            </div>
 
-                                        <div className="flex flex-col gap-2">
-                                            <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Dirección de Entrega</label>
-                                            <div className="relative">
+                                            {/* Address Type Selector */}
+                                            <div className="flex gap-4 mb-6">
+                                                {['Casa', 'Trabajo', 'Lugar'].map((type) => (
+                                                    <label key={type} className="flex items-center gap-2 cursor-pointer group">
+                                                        <input 
+                                                            type="radio" 
+                                                            name="addressType" 
+                                                            value={type}
+                                                            checked={formData.addressType === type}
+                                                            onChange={() => setFormData({ ...formData, addressType: type })}
+                                                            className="hidden"
+                                                        />
+                                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${formData.addressType === type ? 'border-[#1a3da1] bg-[#1a3da1]' : 'border-slate-300'}`}>
+                                                            {formData.addressType === type && <div className="w-2 h-2 bg-white rounded-full" />}
+                                                        </div>
+                                                        <span className="text-sm font-bold text-slate-600 flex items-center gap-1.5">
+                                                            {type === 'Casa' ? '🏠' : type === 'Trabajo' ? '💼' : '🏙️'} {type}
+                                                        </span>
+                                                    </label>
+                                                ))}
+                                            </div>
+
+                                            <div className="flex flex-col gap-2">
+                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Dirección o lugar de entrega</label>
                                                 <input
                                                     required
                                                     value={formData.address}
                                                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                                     type="text"
-                                                    placeholder="Calle Principal #123"
-                                                    className="w-full h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
+                                                    placeholder="Ej. Nombre de la calle y Nro. domicilio"
+                                                    className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
                                                 />
-                                                {savedAddresses.length > 0 && (
-                                                    <button 
-                                                        type="button" 
-                                                        onClick={() => setIsAddressModalOpen(true)}
-                                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-black uppercase text-[#1a3da1] hover:underline"
-                                                    >
-                                                        Usar Guardada
-                                                    </button>
-                                                )}
+                                            </div>
+
+                                            <div className="flex flex-col gap-2">
+                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Indicación para la entrega:</label>
+                                                <input
+                                                    value={formData.indications}
+                                                    onChange={(e) => setFormData({ ...formData, indications: e.target.value })}
+                                                    type="text"
+                                                    placeholder="Ej. Entre calles, color de casa, no tiene timbre"
+                                                    className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                />
+                                            </div>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="flex flex-col gap-2">
+                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Localidad:</label>
+                                                    <input
+                                                        required
+                                                        value={formData.locality}
+                                                        onChange={(e) => setFormData({ ...formData, locality: e.target.value })}
+                                                        type="text"
+                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Colonia o Barrio (Opcional):</label>
+                                                    <input
+                                                        value={formData.neighborhood}
+                                                        onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
+                                                        type="text"
+                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div className="flex flex-col gap-2">
+                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Ciudad (Opcional):</label>
+                                                    <input
+                                                        value={formData.city}
+                                                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                                                        type="text"
+                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-1">Código Postal (Opcional):</label>
+                                                    <input
+                                                        value={formData.postalCode}
+                                                        onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
+                                                        type="text"
+                                                        className="h-[54px] px-5 bg-white border border-slate-200 rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#1a3da1]/5 focus:border-[#1a3da1] transition-all outline-none"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                             <div className="flex flex-col gap-2">
-                                                 <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Localidad</label>
-                                                 <input
-                                                     required
-                                                     value={formData.locality}
-                                                     onChange={(e) => setFormData({ ...formData, locality: e.target.value })}
-                                                     type="text"
-                                                     placeholder="Tehuacán"
-                                                     className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                                 />
-                                             </div>
-                                             <div className="flex flex-col gap-2">
-                                                 <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Colonia o Barrio</label>
-                                                 <input
-                                                     value={formData.neighborhood}
-                                                     onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
-                                                     type="text"
-                                                     placeholder="Centro"
-                                                     className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                                 />
-                                             </div>
-                                         </div>
-
-                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                             <div className="flex flex-col gap-2">
-                                                 <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Ciudad / Estado</label>
-                                                 <input
-                                                     required
-                                                     value={formData.city}
-                                                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                                                     type="text"
-                                                     placeholder="Puebla"
-                                                     className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                                 />
-                                             </div>
-                                             <div className="flex flex-col gap-2">
-                                                 <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Código Postal</label>
-                                                 <input
-                                                     required
-                                                     value={formData.postalCode}
-                                                     onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
-                                                     type="text"
-                                                     placeholder="75700"
-                                                     className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                                 />
-                                             </div>
-                                         </div>
-
-                                         <div className="flex flex-col gap-2">
-                                             <label className="text-[12px] font-black text-[lab(40_-1.58_-10.29)] uppercase tracking-widest px-1">Teléfono</label>
-                                             <input
-                                                 required
-                                                 value={formData.phone}
-                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                 type="tel"
-                                                 placeholder="+52 55..."
-                                                 className="h-[45px] px-5 bg-slate-50 border border-[#ccc] rounded-[4px] font-bold text-[var(--color-gray-900)] focus:ring-4 ring-blue-500/5 transition-all outline-none"
-                                             />
-                                         </div>
                                     </>
                                 )}
 
-                                {/* Payment placeholder section */}
-                                <div className="pt-10">
-                                    <h2 className="text-[28px] font-black text-slate-900 mb-8 tracking-tighter flex items-center gap-4">
-                                        <span className="w-10 h-10 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-900 text-lg">2</span>
-                                        Método de Pago
-                                    </h2>
+                                {/* Step 3: Método de Pago */}
+                                <div className="pt-10 border-t border-slate-100 mt-12">
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <span className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-slate-900 text-[14px] font-bold">3</span>
+                                        <h2 className="text-[28px] font-black text-slate-900 tracking-tight">Método de Pago</h2>
+                                    </div>
+                                    
                                     <div className="grid grid-cols-2 gap-4">
                                         <div 
                                             onClick={() => setPaymentMethod('CASH')}
-                                            className={`border rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CASH' ? 'border-[#1a3da1] bg-white shadow-md' : 'border-slate-200 bg-white hover:border-slate-300 opacity-60'}`}
+                                            className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CASH' ? 'border-[#1a3da1] bg-white shadow-lg ring-4 ring-[#1a3da1]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
                                         >
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CASH' ? 'bg-[#1a3da1] text-white' : 'bg-slate-100 text-slate-400'}`}>
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CASH' ? 'bg-[#1a3da1] text-white' : 'bg-slate-50 text-slate-300'}`}>
                                                 <Truck size={20} />
                                             </div>
-                                            <span className={`font-black text-[14px] uppercase tracking-widest ${paymentMethod === 'CASH' ? 'text-slate-900' : 'text-slate-400'}`}>Pago al recibir</span>
+                                            <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'CASH' ? 'text-slate-900' : 'text-slate-300'}`}>Pago al recibir</span>
                                         </div>
                                         <div 
                                             onClick={() => setPaymentMethod('CARD')}
-                                            className={`border rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CARD' ? 'border-[#1a3da1] bg-white shadow-md' : 'border-slate-200 bg-white hover:border-slate-300 opacity-60'}`}
+                                            className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CARD' ? 'border-[#1a3da1] bg-white shadow-lg ring-4 ring-[#1a3da1]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
                                         >
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CARD' ? 'bg-[#1a3da1] text-white' : 'bg-slate-100 text-slate-400'}`}>
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'CARD' ? 'bg-[#1a3da1] text-white' : 'bg-slate-50 text-slate-300'}`}>
                                                 <CreditCard size={20} />
                                             </div>
-                                            <span className={`font-black text-[14px] uppercase tracking-widest ${paymentMethod === 'CARD' ? 'text-slate-900' : 'text-slate-400'}`}>Tarjeta</span>
+                                            <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'CARD' ? 'text-slate-900' : 'text-slate-300'}`}>Tarjeta</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <button
                                     disabled={isProcessing}
-                                    className={`w-full h-[54px] mt-8 rounded-[8px] font-black text-[16px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-2xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#1a3892] text-white hover:bg-black active:scale-[0.98]'}`}
+                                    className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#1a3da1] text-white hover:bg-[#1a3da1]/90 active:scale-[0.98]'}`}
                                 >
                                     {isProcessing ? (
                                         <>

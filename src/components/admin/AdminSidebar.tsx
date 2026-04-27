@@ -14,6 +14,8 @@ import {
     Star
 } from 'lucide-react';
 
+import { signOut } from 'next-auth/react';
+
 const menuItems = [
     { name: 'Dashboard', icon: LayoutDashboard, href: '/admin' },
     { name: 'Productos', icon: Package, href: '/admin/products' },
@@ -29,6 +31,10 @@ const menuItems = [
 
 export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: boolean) => void }) {
     const pathname = usePathname();
+
+    const handleLogout = async () => {
+        await signOut({ callbackUrl: window.location.origin });
+    };
 
     return (
         <aside className={`w-64 bg-[#0f172a] text-white h-screen flex flex-col fixed left-0 top-0 z-[60] border-r border-slate-800 shadow-2xl transition-transform duration-500 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -79,7 +85,10 @@ export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen
                     <LogOut size={20} className="rotate-180" />
                     <span className="font-semibold text-[14px]">Ver Tienda</span>
                 </Link>
-                <button className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-all">
+                <button 
+                    onClick={handleLogout}
+                    className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-slate-400 hover:bg-red-500/10 hover:text-red-400 transition-all"
+                >
                     <LogOut size={20} />
                     <span className="font-semibold text-[14px]">Cerrar Sesión</span>
                 </button>

@@ -293,7 +293,7 @@ export default function AccountPage() {
     const handleLogout = async () => {
         localStorage.removeItem('user');
         window.dispatchEvent(new Event('local-user-updated'));
-        await signOut({ callbackUrl: '/' });
+        await signOut({ callbackUrl: window.location.origin });
     };
 
     if (status === 'loading' || !user) return null;
