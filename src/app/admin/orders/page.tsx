@@ -194,8 +194,8 @@ export default function AdminOrders() {
             streetVal = streetVal.replace(rawCpAtEnd[0], '');
         }
 
-        // CLEANING
-        streetVal = streetVal.replace(/[.\s,]+$/, '').trim();
+        // CLEANING - preserve commas so we don't break the 4-part structure if city is empty
+        streetVal = streetVal.replace(/[.\s]+$/, '').trim();
 
         // 7. Hierarchy Parsing: Right-to-Left Strategy
         const parts = streetVal.split(',').map(p => p.trim());
@@ -215,10 +215,11 @@ export default function AdminOrders() {
                 cityVal = parts[2];
             } else if (parts.length >= 4) {
                 // Street, Neighborhood, Locality, City (Full style)
-                streetVal = parts[0];
                 cityVal = parts[parts.length - 1]; 
                 localityVal = parts[parts.length - 2];
-                neighborhoodVal = parts.slice(1, -2).join(', ');
+                neighborhoodVal = parts[parts.length - 3];
+                // Everything else belongs to street (handles commas inside street names)
+                streetVal = parts.slice(0, parts.length - 3).join(', ');
             }
         }
 
