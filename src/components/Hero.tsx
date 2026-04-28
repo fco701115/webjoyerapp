@@ -2,7 +2,7 @@
 import { Laptop, Smartphone, Gamepad as GamepadIcon, Speaker, Camera, Watch, Monitor, Mouse, Headphones, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface HeroProps {
     initialCategories?: any[];
@@ -15,6 +15,35 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
     const [isLoading, setIsLoading] = useState(!initialCategories || !initialSliders);
     const [currentSlider, setCurrentSlider] = useState(0);
     const [mounted, setMounted] = useState(false);
+    
+    // Swipe state
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            setCurrentSlider((prev) => (prev + 1) % sliders.length);
+        }
+        if (isRightSwipe) {
+            setCurrentSlider((prev) => (prev === 0 ? sliders.length - 1 : prev - 1));
+        }
+    };
 
     useEffect(() => {
         setMounted(true);
@@ -112,7 +141,12 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                     </div>
 
                     {/* Main Banner / Slider */}
-                    <div className="flex-1 rounded-[4px] relative overflow-hidden group shadow-sm bg-[#12245b]">
+                    <div 
+                        className="flex-1 rounded-[4px] relative overflow-hidden group shadow-sm bg-[#12245b]"
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                    >
                         <div className="absolute inset-0">
                             {sliders.length > 0 && sliders.map((slider, index) => (
                                 <div
