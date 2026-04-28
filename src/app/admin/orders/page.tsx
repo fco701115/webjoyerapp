@@ -437,7 +437,7 @@ export default function AdminOrders() {
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[100] flex items-center justify-center p-4">
                     <div className="bg-white w-full max-w-lg rounded-[40px] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300 flex flex-col max-h-[90vh]">
                         {/* Header */}
-                        <div className="p-8 border-b border-slate-50 flex items-center justify-between">
+                        <div className="p-[15px] rounded-t-[20px] border-b border-slate-50 flex items-center justify-between">
                             <div className="flex flex-col gap-1">
                                 <h3 className="font-black text-[22px] text-slate-900 tracking-tight flex items-center gap-2">
                                     Pedido #{selectedOrder.id.slice(-6).toUpperCase()}
@@ -465,7 +465,7 @@ export default function AdminOrders() {
                         </div>
 
                         {/* Content Scrollable */}
-                        <div id="printable-order" className="flex-1 overflow-y-auto p-8 pt-4 space-y-8 print:p-0 print:overflow-visible">
+                        <div id="printable-order" className="flex-1 overflow-y-auto pb-8 pt-4 px-[15px] space-y-8 print:p-0 print:overflow-visible">
                             {/* Products List */}
                             <div className="space-y-4">
                                 <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Artículos del Pedido</h4>
@@ -539,12 +539,12 @@ export default function AdminOrders() {
                                             </div>
                                         )}
                                         <p className="text-slate-500 text-[13px] font-bold">
-                                            <span className="text-[10px] text-slate-300 font-black uppercase mr-1">Col:</span>
-                                            {formatAddress(selectedOrder.address).neighborhood || '---'}
-                                        </p>
-                                        <p className="text-slate-500 text-[13px] font-bold">
                                             <span className="text-[10px] text-slate-300 font-black uppercase mr-1">Loc:</span>
                                             {formatAddress(selectedOrder.address).locality || '---'}
+                                        </p>
+                                        <p className="text-slate-500 text-[13px] font-bold">
+                                            <span className="text-[10px] text-slate-300 font-black uppercase mr-1">Col:</span>
+                                            {formatAddress(selectedOrder.address).neighborhood || '---'}
                                         </p>
                                         <p className="text-slate-400 text-[12px] font-bold">
                                             {formatAddress(selectedOrder.address).city}
@@ -560,7 +560,7 @@ export default function AdminOrders() {
                         </div>
 
                         {/* Footer / Actions */}
-                        <div className="p-8 border-t border-slate-50 bg-slate-50/30 flex flex-col gap-3">
+                        <div className="p-[15px] rounded-b-[20px] border-t border-slate-50 bg-slate-50/30 flex flex-col gap-3">
                             <div className="flex items-center justify-between gap-3">
                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Actualizar Estado:</span>
                                 <select
@@ -622,7 +622,7 @@ export default function AdminOrders() {
                                 
                                 {formatAddress(showShippingModal.address).indications && (
                                     <div className="mt-3 bg-slate-50/80 p-3 rounded-2xl border border-slate-100 flex flex-col gap-1">
-                                        <span className="text-[9px] font-black text-slate-300 uppercase leading-none px-1">Indicación para la entrega:</span>
+                                        <span className="text-[9px] font-black text-[color:lab(76_-2.18_-9.03)] uppercase leading-none px-1">Indicación para la entrega:</span>
                                         <p className="text-slate-500 font-bold text-[13px] px-1">
                                             {formatAddress(showShippingModal.address).indications}
                                         </p>
