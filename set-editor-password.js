@@ -1,10 +1,10 @@
 
-const { PrismaClient } = require('./src/generated/client');
+const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'editor@appecom.com';
+  const email = 'editor@webtiendapp.com';
   const hashedPassword = await bcrypt.hash('editor123', 10);
 
   await prisma.user.upsert({

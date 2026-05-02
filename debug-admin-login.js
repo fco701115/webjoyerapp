@@ -1,11 +1,11 @@
 
-const { PrismaClient } = require('./src/generated/client');
+const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function debug() {
   const user = await prisma.user.findUnique({
-    where: { email: 'admin@appecom.com' }
+    where: { email: 'admin@webtiendapp.com' }
   });
 
   if (!user) {

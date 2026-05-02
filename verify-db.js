@@ -1,11 +1,11 @@
 
 require('dotenv').config();
-const { PrismaClient } = require('./src/generated/client');
+const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'admin@appecom.com';
+  const email = 'admin@webtiendapp.com';
   const hashedPassword = await bcrypt.hash('admin123', 10);
 
   const admin = await prisma.user.upsert({
@@ -25,7 +25,7 @@ async function main() {
   });
 
   const check = await prisma.user.findUnique({ where: { email } });
-  console.log('Final Database State Check for admin@appecom.com:');
+  console.log('Final Database State Check for admin@webtiendapp.com:');
   console.log(JSON.stringify(check, null, 2));
 }
 
