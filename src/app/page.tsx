@@ -61,7 +61,7 @@ export default async function Home() {
       <div className="w-full max-w-[1200px] mx-auto px-2 pt-4 pb-8">
 
         {/* Header/Title Category Section */}
-        <div className="flex justify-between items-center bg-transparent border-t border-[#dfdfdf] mb-8 pt-4 pb-[10px]">
+        <div className="flex justify-between items-center bg-transparent border-b border-[#dfdfdf] mb-8 pt-4 pb-[10px]">
           <div className="flex flex-col gap-1">
             <h2 className="text-[22px] font-lato m-0 font-semibold text-slate-900 tracking-tighter capitalize border-[#dfdfdf]">Novedades Destacadas</h2>
 
