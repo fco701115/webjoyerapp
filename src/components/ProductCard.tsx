@@ -74,13 +74,13 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Image Area */}
                 <div className="relative mx-auto w-full h-[140px] sm:h-[180px] p-0">
-                    <div className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-2xl sm:group-hover:bg-slate-100/50 transition-all overflow-hidden">
+                    <div className="relative w-full h-full flex items-center justify-center bg-slate-50 border border-transparent rounded-none sm:group-hover:bg-slate-100/50 transition-all overflow-hidden">
                         <Image
                             src={product.imageUrl}
                             alt={product.name}
                             fill
                             sizes="(max-width: 640px) 50vw, 180px"
-                            className="object-contain sm:group-hover:scale-110 transition-transform duration-500"
+                            className="object-contain sm:group-hover:scale-110 transition-transform duration-500 rounded-none"
                         />
                     </div>
                 </div>
