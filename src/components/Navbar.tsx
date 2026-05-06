@@ -120,7 +120,7 @@ export function Navbar() {
                             <Link href="/" className="hover:text-gray-300 transition-colors">Inicio</Link>
                         </li>
                         <li>
-                            <Link href="/search" className="hover:text-gray-300 transition-colors">Productos</Link>
+                            <Link href="/search" prefetch={true} className="hover:text-gray-300 transition-colors">Productos</Link>
                         </li>
                         <li>
                             <Link href="/account" className="hover:text-gray-300 transition-colors">Mi Cuenta</Link>
