@@ -7,6 +7,9 @@ import { prisma } from '@/lib/prisma';
 import { unstable_cache } from 'next/cache';
 import { Suspense } from 'react';
 
+// Force dynamic rendering — this page requires DATABASE_URL at runtime
+export const dynamic = 'force-dynamic';
+
 // Cached function to fetch layout-critical data
 const getBanners = unstable_cache(
   async () => {
