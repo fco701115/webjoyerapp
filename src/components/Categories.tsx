@@ -126,26 +126,33 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                         href={`/search?category=${c.id}`}
                                         key={c.id}
                                         prefetch={true}
-                                        className="flex-shrink-0 w-[30%] sm:w-[30%] md:w-[22%] lg:w-[15%] snap-start flex flex-col items-center justify-center gap-5 group cursor-pointer"
+                                        className="flex-shrink-0 snap-start group cursor-pointer"
                                     >
-                                        <div className="w-[85px] h-[85px] sm:w-[100px] md:w-[120px] md:h-[120px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex items-center justify-center text-slate-400 group-hover:border-[#e996a0] group-hover:text-[#e996a0] group-hover:bg-pink-50/30 group-hover:shadow-2xl group-hover:shadow-pink-500/10 transition-all duration-500 ease-out overflow-hidden relative">
-                                            {c.imageUrl ? (
-                                                <div className="relative w-full h-full p-2">
+                                        <div className="w-[123px] h-[123px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex flex-col items-center group-hover:border-[#e996a0] group-hover:shadow-2xl group-hover:shadow-pink-500/10 transition-all duration-500 ease-out overflow-hidden relative">
+                                            {/* Image Section */}
+                                            <div className="relative w-full h-[85px] p-2 bg-slate-50/50 group-hover:bg-transparent transition-colors">
+                                                {c.imageUrl ? (
                                                     <Image 
                                                         src={c.imageUrl} 
                                                         alt={c.name || 'Categoría'} 
                                                         fill 
-                                                        className="object-cover" 
+                                                        className="object-cover p-1" 
                                                         unoptimized={c.imageUrl && c.imageUrl.startsWith('data:')}
                                                     />
-                                                </div>
-                                            ) : (
-                                                <IconComponent size={32} className="md:w-[48px] md:h-[48px]" strokeWidth={1.5} />
-                                            )}
+                                                ) : (
+                                                    <div className="w-full h-full flex items-center justify-center text-slate-300 group-hover:text-[#e996a0] transition-colors">
+                                                        <IconComponent size={40} strokeWidth={1.5} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                            
+                                            {/* Name Section */}
+                                            <div className="w-full flex-grow flex items-center justify-center px-2 bg-white border-t border-[#f0f0f0] group-hover:bg-pink-50/30 transition-colors">
+                                                <span className="text-[13px] font-black text-slate-900 group-hover:text-[#e996a0] transition-colors text-center capitalize tracking-tight leading-tight line-clamp-1">
+                                                    {c.name ? c.name.toLowerCase() : ''}
+                                                </span>
+                                            </div>
                                         </div>
-                                        <span className="text-[16px] font-bold text-slate-900 group-hover:text-[#e996a0] transition-colors text-center capitalize tracking-tight leading-tight px-2">
-                                            {c.name ? c.name.toLowerCase() : ''}
-                                        </span>
                                     </Link>
                                 )
                             })}
