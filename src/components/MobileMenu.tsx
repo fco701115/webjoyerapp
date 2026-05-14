@@ -74,7 +74,7 @@ export function MobileMenu() {
                 className={`fixed top-0 left-0 h-full w-[80%] max-w-[300px] bg-white z-[2001] shadow-2xl transition-transform duration-300 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}
             >
                 {/* Header */}
-                <div className="bg-[#e996a0] p-6 text-white">
+                <div className="bg-[#198754] p-6 text-white">
                     <div className="flex justify-between items-center mb-6">
                         <Link href="/" onClick={() => setMenuOpen(false)}>
                             <span className="text-2xl font-black italic">Webshopapp</span>
@@ -94,11 +94,11 @@ export function MobileMenu() {
                         <div>
                             <p className="font-bold text-sm">Hola, {user?.name || 'Invitado'}</p>
                             {!user ? (
-                                <Link href="/login" onClick={() => setMenuOpen(false)} className="text-xs text-pink-100 hover:underline">
+                                <Link href="/login" onClick={() => setMenuOpen(false)} className="text-xs text-green-100 hover:underline">
                                     Iniciar sesión / Registrarse
                                 </Link>
                             ) : (
-                                <Link href="/account" onClick={() => setMenuOpen(false)} className="text-xs text-pink-100 hover:underline">
+                                <Link href="/account" onClick={() => setMenuOpen(false)} className="text-xs text-green-100 hover:underline">
                                     Ver mi perfil
                                 </Link>
                             )}
@@ -116,10 +116,10 @@ export function MobileMenu() {
                                     key={i}
                                     href={item.href}
                                     onClick={() => setMenuOpen(false)}
-                                    className="flex items-center justify-between py-3 text-gray-700 hover:text-[#e996a0] transition-colors group"
+                                    className="flex items-center justify-between py-3 text-gray-700 hover:text-[#198754] transition-colors group"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <span className="text-gray-400 group-hover:text-[#e996a0] transition-colors">{item.icon}</span>
+                                        <span className="text-gray-400 group-hover:text-[#198754] transition-colors">{item.icon}</span>
                                         <span className="font-medium">{item.label}</span>
                                     </div>
                                     <ChevronRight size={16} className="text-gray-300" />
