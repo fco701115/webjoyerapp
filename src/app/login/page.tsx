@@ -77,7 +77,7 @@ function LoginContent() {
             <div className="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 bg-white rounded-[48px] shadow-2xl overflow-hidden border border-slate-100">
 
                 {/* Visual Side */}
-                <div className="hidden lg:flex bg-[#e996a0] p-16 flex-col justify-between relative overflow-hidden">
+                <div className="hidden lg:flex bg-[#198754] p-16 flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full translate-y-1/3 -translate-x-1/4" />
 
@@ -105,7 +105,7 @@ function LoginContent() {
                     </div>
 
                     <div className="relative z-10 pt-10 border-t border-white/10">
-                        <p className="text-pink-200/50 font-medium text-sm">© 2026 Webshopapp Technologies. All rights reserved.</p>
+                        <p className="text-green-200/50 font-medium text-sm">© 2026 Webshopapp Technologies. All rights reserved.</p>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@ function LoginContent() {
                                 <span className="text-sm font-bold">{error}</span>
                             </div>
                         )}
-                        <div className="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center text-[#e996a0] mb-6">
+                        <div className="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-[#198754] mb-6">
                             <LayoutGrid size={24} />
                         </div>
                         <h1 className="text-[32px] font-black text-slate-900 tracking-tighter mb-2">Iniciar Sesión</h1>
@@ -142,7 +142,7 @@ function LoginContent() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="nombre@ejemplo.com"
-                                    className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold focus:ring-4 ring-pink-500/5 transition-all outline-none"
+                                    className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold focus:ring-4 ring-green-500/5 transition-all outline-none"
                                 />
                             </div>
                         </div>
@@ -150,7 +150,7 @@ function LoginContent() {
                         <div className="space-y-2">
                             <div className="flex justify-between px-1">
                                 <label className="text-[12px] font-black text-slate-400 uppercase tracking-widest">Contraseña</label>
-                                <button type="button" className="text-[11px] font-black text-[#e996a0] hover:underline uppercase tracking-tight">¿Olvido clave?</button>
+                                <button type="button" className="text-[11px] font-black text-[#198754] hover:underline uppercase tracking-tight">¿Olvido clave?</button>
                             </div>
                             <div className="relative">
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={20} />
@@ -160,14 +160,14 @@ function LoginContent() {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="••••••••"
-                                    className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold focus:ring-4 ring-pink-500/5 transition-all outline-none"
+                                    className="w-full h-14 pl-12 pr-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold focus:ring-4 ring-green-500/5 transition-all outline-none"
                                 />
                             </div>
                         </div>
 
                         <button
                             disabled={isLoading}
-                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#e996a0] text-white hover:bg-slate-900 active:scale-95 shadow-pink-500/10'}`}
+                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#198754] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
                         >
                             {isLoading ? 'Verificando...' : (
                                 <>
@@ -207,7 +207,7 @@ function LoginContent() {
                     </div>
 
                     <p className="mt-10 text-center text-slate-400 font-medium">
-                        ¿No tienes cuenta? <Link href="/register" className="text-[#e996a0] font-black hover:underline">Regístrate gratis</Link>
+                        ¿No tienes cuenta? <Link href="/register" className="text-[#198754] font-black hover:underline">Regístrate gratis</Link>
                     </p>
                 </div>
             </div>

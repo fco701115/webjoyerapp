@@ -30,7 +30,7 @@ export function CartSidebar() {
                     {/* Header */}
                     <div className="px-6 py-6 border-b border-slate-100 flex items-center justify-between bg-white">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#e996a0] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#e996a0]/20">
+                            <div className="w-10 h-10 bg-[#198754] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-green-500/20">
                                 <ShoppingBag size={20} />
                             </div>
                             <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">Mi Carrito</h2>
@@ -56,7 +56,7 @@ export function CartSidebar() {
                                 </div>
                                 <button
                                     onClick={() => setCartOpen(false)}
-                                    className="bg-[#e996a0] text-white px-8 py-3 rounded-2xl font-bold text-sm hover:bg-[#153288] transition-all shadow-lg shadow-[#e996a0]/20"
+                                    className="w-full bg-[#198754] text-white py-4 rounded-[5px] font-bold text-sm hover:bg-[#146c43] transition-all shadow-lg shadow-green-500/20 active:scale-[0.98] flex items-center justify-center gap-3"
                                 >
                                     Continuar comprando
                                 </button>
@@ -75,22 +75,22 @@ export function CartSidebar() {
                                     </div>
                                     <div className="flex flex-col flex-grow justify-between py-1">
                                         <div>
-                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#e996a0] transition-colors">
+                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#198754] transition-colors">
                                                 <Link href={`/product/${item.id}`} onClick={() => setCartOpen(false)}>
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="text-[#e996a0] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                            <p className="text-[#198754] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
-                                            <div className="flex items-center bg-slate-100 rounded-xl p-0.5 gap-1">
+                                            <div className="flex items-center gap-2 bg-green-50 rounded-lg p-1 border border-green-100">
                                                 <button
                                                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                                     className="w-7 h-7 flex items-center justify-center hover:bg-white rounded-lg transition-all text-slate-600 shadow-sm border border-transparent hover:border-slate-200"
                                                 >
                                                     <Minus size={14} />
                                                 </button>
-                                                <span className="w-6 text-center text-[14px] font-bold text-slate-900">{item.quantity}</span>
+                                                <span className="w-8 text-center text-[12px] font-black text-green-700">{item.quantity}</span>
                                                 <button
                                                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                                     className="w-7 h-7 flex items-center justify-center hover:bg-white rounded-lg transition-all text-slate-600 shadow-sm border border-transparent hover:border-slate-200"
@@ -126,7 +126,7 @@ export function CartSidebar() {
                                 <div className="h-px bg-slate-100 w-full" />
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-900 font-extrabold text-[16px]">TOTAL</span>
-                                    <span className="text-[22px] font-black text-[#e996a0]">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                    <span className="text-[20px] font-black text-[#198754] tracking-tighter">${totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 </div>
                             </div>
 
@@ -134,7 +134,7 @@ export function CartSidebar() {
                                 <Link
                                     href="/checkout"
                                     onClick={() => setCartOpen(false)}
-                                    className="w-full h-14 bg-[#e996a0] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#153288] transition-all shadow-xl active:scale-95"
+                                    className="w-full h-14 bg-[#198754] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#146c43] transition-all shadow-xl active:scale-95"
                                 >
                                     PAGAR AHORA
                                     <ArrowRight size={20} />
