@@ -62,6 +62,8 @@ export function Header() {
             <div className="max-w-[1200px] mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                 <div className="flex w-full md:w-auto items-center justify-between md:justify-start gap-2">
                     <div className="flex items-center gap-3">
+                        <div 
+                            onClick={() => setMenuOpen(true)}
                             className="md:hidden p-1 text-gray-700 hover:text-[#198754] cursor-pointer"
                         >
                             <Menu size={28} />

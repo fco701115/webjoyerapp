@@ -72,7 +72,7 @@ export function FilterSidebar({ isOpen, onClose, currentFilters, onApply }: Filt
                 {/* Header */}
                 <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0 z-10">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#198754] to-[#146c43] rounded-[18px] flex items-center justify-center text-white shadow-lg shadow-green-900/20">>
+                        <div className="w-12 h-12 bg-gradient-to-br from-[#198754] to-[#146c43] rounded-[18px] flex items-center justify-center text-white shadow-lg shadow-green-900/20">
                             <SlidersHorizontal size={24} />
                         </div>
                         <div>

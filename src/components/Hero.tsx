@@ -116,7 +116,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                         className="flex items-center justify-between px-6 py-[10px] text-gray-700 hover:bg-gray-50 hover:text-[#198754] transition-all group border-b border-gray-50/50 last:border-0"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="text-gray-400 group-hover:text-[#198754] group-hover:scale-110 transition-all w-5 h-5 flex items-center justify-center">>
+                                            <div className="text-gray-400 group-hover:text-[#198754] group-hover:scale-110 transition-all w-5 h-5 flex items-center justify-center">
                                                 {cat.imageUrl ? (
                                                     <div className="relative w-full h-full overflow-hidden rounded-sm">
                                                         <Image
@@ -200,7 +200,7 @@ export function Hero({ initialCategories, initialSliders }: HeroProps) {
                                         </p>
 
                                         <div>
-                                            <Link href={slider.link || "/search"} className="inline-block bg-white text-slate-900 px-6 md:px-10 py-2 md:py-3 rounded-[3px] font-bold shadow-lg hover:bg-[#198754] hover:text-white transition-all text-sm md:text-base">>
+                                            <Link href={slider.link || "/search"} className="inline-block bg-white text-slate-900 px-6 md:px-10 py-2 md:py-3 rounded-[3px] font-bold shadow-lg hover:bg-[#198754] hover:text-white transition-all text-sm md:text-base">
                                                 {slider.buttonText || 'Ver Ofertas'}
                                             </Link>
                                         </div>
