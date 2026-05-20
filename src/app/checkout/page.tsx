@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useCart } from '@/context/CartContext';
-import { ChevronLeft, Truck, CreditCard, ShieldCheck, CheckCircle2, ArrowRight, Minus, Plus, Trash2, MapPin } from 'lucide-react';
+import { ChevronLeft, Truck, CreditCard, ShieldCheck, CheckCircle2, ArrowRight, Minus, Plus, Trash2, MapPin, Lock, HelpCircle, Landmark } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -454,7 +454,7 @@ export default function CheckoutPage() {
                                         <h2 className="text-[18px] font-bold text-slate-900 tracking-tight">Método de Pago</h2>
                                     </div>
                                     
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div 
                                             onClick={() => setPaymentMethod('CASH')}
                                             className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'CASH' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
@@ -473,7 +473,114 @@ export default function CheckoutPage() {
                                             </div>
                                             <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'CARD' ? 'text-slate-900' : 'text-slate-300'}`}>Tarjeta</span>
                                         </div>
+                                        <div 
+                                            onClick={() => setPaymentMethod('TRANSFER')}
+                                            className={`border-[1.5px] rounded-[15px] p-6 flex flex-col gap-4 cursor-pointer transition-all ${paymentMethod === 'TRANSFER' ? 'border-[#198754] bg-white shadow-lg ring-4 ring-[#198754]/5' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                                        >
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${paymentMethod === 'TRANSFER' ? 'bg-[#198754] text-white' : 'bg-slate-50 text-slate-300'}`}>
+                                                <Landmark size={20} />
+                                            </div>
+                                            <span className={`font-black text-[12px] uppercase tracking-widest ${paymentMethod === 'TRANSFER' ? 'text-slate-900' : 'text-slate-300'}`}>Transferencia</span>
+                                        </div>
                                     </div>
+
+                                    {/* Formulario de Tarjeta de Crédito (se muestra solo al seleccionar CARD) */}
+                                    {paymentMethod === 'CARD' && (
+                                        <div className="mt-6 border border-slate-300 rounded-[8px] overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
+                                            {/* Header */}
+                                            <div className="bg-white p-4 flex items-center justify-between border-b border-slate-200">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-5 h-5 rounded-full border-[5px] border-slate-900 bg-white shadow-sm flex items-center justify-center">
+                                                        <div className="w-1.5 h-1.5 bg-slate-900 rounded-full"></div>
+                                                    </div>
+                                                    <span className="font-bold text-[15px] text-slate-900">Tarjeta de crédito</span>
+                                                </div>
+                                                <div className="flex items-center gap-1.5">
+                                                    <div className="bg-white border border-slate-200 rounded px-2 py-0.5 shadow-sm">
+                                                        <span className="text-[11px] font-black italic text-[#1a1f71]">VISA</span>
+                                                    </div>
+                                                    <div className="bg-white border border-slate-200 rounded px-1.5 py-0.5 flex items-center shadow-sm">
+                                                        <div className="w-3.5 h-3.5 bg-[#eb001b] rounded-full opacity-90 z-10"></div>
+                                                        <div className="w-3.5 h-3.5 bg-[#f79e1b] rounded-full opacity-90 -ml-1.5"></div>
+                                                    </div>
+                                                    <div className="bg-[#0070ba] border border-[#0070ba] rounded px-1.5 py-0.5 text-white shadow-sm flex items-center">
+                                                        <span className="text-[9px] font-bold tracking-wider">AMEX</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Form Body */}
+                                            <div className="bg-[#f6f6f6] p-4 space-y-3">
+                                                <div className="relative">
+                                                    <input 
+                                                        type="text" 
+                                                        placeholder="Número de tarjeta"
+                                                        className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                                    />
+                                                    <Lock size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                                                </div>
+                                                
+                                                <div className="grid grid-cols-2 gap-3">
+                                                    <input 
+                                                        type="text" 
+                                                        placeholder="Fecha de vencimiento (MM / AA)"
+                                                        className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                                    />
+                                                    <div className="relative">
+                                                        <input 
+                                                            type="text" 
+                                                            placeholder="Código de seguridad"
+                                                            className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                                        />
+                                                        <HelpCircle size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <input 
+                                                    type="text" 
+                                                    placeholder="Nombre del titular"
+                                                    className="w-full h-[45px] px-3 border border-slate-300 rounded-[6px] text-[14px] text-slate-900 outline-none focus:border-[#198754] focus:ring-1 focus:ring-[#198754] transition-all placeholder:text-slate-400"
+                                                />
+                                                
+                                                <label className="flex items-center gap-2 mt-4 cursor-pointer pt-2">
+                                                    <input type="checkbox" className="w-4 h-4 rounded-[4px] border-slate-300 text-slate-900 focus:ring-slate-900 accent-black cursor-pointer" defaultChecked />
+                                                    <span className="text-[13px] text-slate-700">Usar la dirección de envío como dirección de facturación</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Formulario de Transferencia Bancaria (se muestra solo al seleccionar TRANSFER) */}
+                                    {paymentMethod === 'TRANSFER' && (
+                                        <div className="mt-6 border border-slate-300 rounded-[8px] overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
+                                            {/* Header */}
+                                            <div className="bg-white p-4 flex items-center gap-3 border-b border-slate-200">
+                                                <div className="w-5 h-5 rounded-full border-[5px] border-slate-900 bg-white shadow-sm flex items-center justify-center">
+                                                    <div className="w-1.5 h-1.5 bg-slate-900 rounded-full"></div>
+                                                </div>
+                                                <span className="font-bold text-[15px] text-slate-900">Transferencia Bancaria</span>
+                                            </div>
+
+                                            {/* Body */}
+                                            <div className="bg-[#f6f6f6] p-5 space-y-5 text-[14px] text-slate-800 leading-relaxed">
+                                                <p>Realiza tu pago mediante transferencia bancaria a la siguiente cuenta:</p>
+                                                
+                                                <div>
+                                                    <p>KC ROLA, INC</p>
+                                                    <p>Banco General</p>
+                                                    <p>Cuenta Corriente: 03-72-01-122123-8</p>
+                                                </div>
+                                                
+                                                <p>Al momento de transferir, incluye en la descripción: nombre de la persona que realizó el pedido y número de orden.</p>
+                                                
+                                                <p>Una vez realizado el pago, envía tu comprobante a panama@kennethcolelatino.com para iniciar la validación.</p>
+                                                
+                                                <p>Tu pedido será procesado una vez confirmado el pago.</p>
+                                                
+                                                <p>Gracias por comprar en Kenneth Cole Latinoamérica.</p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
 
                                 <button
