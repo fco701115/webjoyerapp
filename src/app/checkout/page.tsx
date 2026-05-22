@@ -340,7 +340,7 @@ export default function CheckoutPage() {
                                                 <h3 className="text-[18px] font-bold text-slate-900 tracking-tight"><span className="border-b-2 border-slate-300">Datos</span> de Personales:</h3>
                                             </div>
 
-                                            <div className="flex flex-col gap-2">
+                                            <div className="flex flex-col gap-2 mb-[12px]">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Nombre y Apellido:</label>
                                                 <input
                                                     required
@@ -360,7 +360,7 @@ export default function CheckoutPage() {
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-2 mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Teléfono:</label>
                                                     <input
                                                         required
@@ -370,7 +370,7 @@ export default function CheckoutPage() {
                                                         className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-2 mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Correo Electrónico:</label>
                                                     <input
                                                         required
@@ -412,7 +412,7 @@ export default function CheckoutPage() {
                                                 ))}
                                             </div>
 
-                                            <div className="flex flex-col gap-2">
+                                            <div className="flex flex-col gap-2 mb-[12px]">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Dirección o lugar de entrega</label>
                                                 <input
                                                     required
@@ -424,7 +424,7 @@ export default function CheckoutPage() {
                                                 />
                                             </div>
 
-                                            <div className="flex flex-col gap-2">
+                                            <div className="flex flex-col gap-2 mb-[12px]">
                                                 <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Indicación para la entrega:</label>
                                                 <input
                                                     value={formData.indications}
@@ -436,7 +436,7 @@ export default function CheckoutPage() {
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-2 mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Localidad:</label>
                                                     <input
                                                         required
@@ -446,7 +446,7 @@ export default function CheckoutPage() {
                                                         className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-2 mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Colonia o Barrio (Opcional):</label>
                                                     <input
                                                         value={formData.neighborhood}
@@ -458,7 +458,7 @@ export default function CheckoutPage() {
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-2 mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Ciudad (Opcional):</label>
                                                     <input
                                                         value={formData.city}
@@ -467,7 +467,7 @@ export default function CheckoutPage() {
                                                         className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
                                                     />
                                                 </div>
-                                                <div className="flex flex-col gap-2">
+                                                <div className="flex flex-col gap-2 mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Código Postal (Opcional):</label>
                                                     <input
                                                         value={formData.postalCode}
