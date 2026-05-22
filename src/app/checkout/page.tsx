@@ -359,8 +359,8 @@ export default function CheckoutPage() {
                                                 />
                                             </div>
 
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="flex flex-col gap-2 mb-[12px]">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-0 md:gap-y-4">
+                                                <div className="flex flex-col gap-2 mb-0 md:mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Teléfono:</label>
                                                     <input
                                                         required
@@ -435,8 +435,8 @@ export default function CheckoutPage() {
                                                 />
                                             </div>
 
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="flex flex-col gap-2 mb-[12px]">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-0 md:gap-y-4">
+                                                <div className="flex flex-col gap-2 mb-0 md:mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Localidad:</label>
                                                     <input
                                                         required
@@ -457,8 +457,8 @@ export default function CheckoutPage() {
                                                 </div>
                                             </div>
 
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div className="flex flex-col gap-2 mb-[12px]">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-0 md:gap-y-4">
+                                                <div className="flex flex-col gap-2 mb-0 md:mb-[12px]">
                                                     <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-1">Ciudad (Opcional):</label>
                                                     <input
                                                         value={formData.city}
@@ -807,31 +807,31 @@ export default function CheckoutPage() {
                                 </div>
                             </div>
 
-                            {/* Botón Finalizar Pedido para Móvil */}
-                            <button
-                                type="submit"
-                                form="checkout-form"
-                                disabled={isProcessing}
-                                className={`w-full h-[58px] mt-8 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
-                            >
-                                {isProcessing ? (
-                                    <>
-                                        <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                                        PROCESANDO...
-                                    </>
-                                ) : (
-                                    <>
-                                        FINALIZAR PEDIDO
-                                        <ArrowRight size={20} />
-                                    </>
-                                )}
-                            </button>
-
                             <div className="mt-10 flex items-center gap-3 bg-white/5 p-4 rounded-2xl text-white/50 text-[12px] font-medium leading-tight">
                                 <ShieldCheck size={28} className="text-emerald-500" />
                                 Pago Seguro 256-bit SSL. Tus datos personales se procesan de forma privada.
                             </div>
                         </div>
+
+                        {/* Botón Finalizar Pedido para Móvil */}
+                        <button
+                            type="submit"
+                            form="checkout-form"
+                            disabled={isProcessing}
+                            className={`w-full h-[58px] mt-6 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
+                        >
+                            {isProcessing ? (
+                                <>
+                                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                                    PROCESANDO...
+                                </>
+                            ) : (
+                                <>
+                                    FINALIZAR PEDIDO
+                                    <ArrowRight size={20} />
+                                </>
+                            )}
+                        </button>
                     </div>
                 </div>
             </div>
