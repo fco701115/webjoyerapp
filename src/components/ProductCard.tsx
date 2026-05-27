@@ -109,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Price Area */}
                 <div className="w-full px-1 mt-[5px] flex items-baseline gap-2 mb-[5px]">
-                    <span className="text-[16px] font-black text-[#198754] tracking-tight">
+                    <span className="text-[16px] font-black text-[#bea55b] tracking-tight">
                         $ {(product.salePrice || product.price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                     {product.salePrice && (
@@ -134,10 +134,10 @@ export function ProductCard({ product }: { product: Product }) {
 
             {/* Actions Area */}
             <div className="mt-auto flex justify-between items-center w-full h-[35px] flex-row mb-2 ml-0 mr-[4px] sm:m-0 sm:mb-1 gap-2 pt-2 relative z-10">
-                <button
-                    onClick={handleBuyNow}
-                    className="flex-1 h-[35px] bg-[#198754] hover:bg-[#146c43] text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
-                >
+<button
+                     onClick={handleBuyNow}
+                     className="flex-1 h-[35px] bg-[#e1cb8a] hover:bg-[#e1cb8a] text-white text-[13px] font-semibold flex items-center justify-center transition-all shadow-sm rounded-[5px] active:scale-95"
+                 >
                     Comprar Ahora
                 </button>
                 <button
