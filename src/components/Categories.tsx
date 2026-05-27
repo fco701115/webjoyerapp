@@ -83,9 +83,9 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                         <div className="h-8 w-64 bg-gray-100 animate-pulse rounded" />
                         <div className="h-1 w-20 bg-gray-100 animate-pulse rounded-full" />
                     </div>
-                    <div className="flex gap-4 overflow-hidden">
+                    <div className="flex gap-3 overflow-hidden">
                         {Array.from({ length: 6 }).map((_, i) => (
-                            <div key={i} className="flex-shrink-0 w-[30%] sm:w-[30%] md:w-[22%] lg:w-[15%] h-32 bg-gray-50 animate-pulse rounded-[15px_0_15px_0]" />
+                            <div key={i} className="flex-shrink-0 w-[100px] sm:w-[123px] md:w-[140px] h-28 sm:h-32 bg-gray-50 animate-pulse rounded-[15px_0_15px_0]" />
                         ))}
                     </div>
                 </>
@@ -117,7 +117,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                             onMouseLeave={handleMouseLeave}
                             onMouseUp={handleMouseUp}
                             onMouseMove={handleMouseMove}
-                            className={`flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 sm:gap-6 pb-[10px] select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                            className={`flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-3 sm:gap-6 pb-[10px] select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
                         >
                             {categories.map((c) => {
                                 const IconComponent = getIcon(c.name);
@@ -128,21 +128,21 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                         prefetch={true}
                                         className="flex-shrink-0 snap-start group cursor-pointer"
                                     >
-                                        <div className="w-[123px] h-[123px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex flex-col items-center group-hover:border-[#198754] group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-500 ease-out overflow-hidden relative">
+                                        <div className="w-[100px] h-[100px] sm:w-[123px] sm:h-[123px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex flex-col items-center group-hover:border-[#198754] group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-500 ease-out overflow-hidden relative">
                                             {/* Image Section */}
-                                            <div className="relative w-full h-[85px] p-2 bg-slate-50/50 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                                            <div className="relative w-full h-[78px] sm:h-[85px] p-2 bg-slate-50/50 group-hover:bg-transparent transition-colors flex items-center justify-center">
                                                 {c.imageUrl ? (
                                                     <Image 
                                                         src={c.imageUrl} 
                                                         alt={c.name || 'Categoría'} 
-                                                        width={80}
-                                                        height={80}
-                                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover p-1 w-[80px] h-[80px]" 
+                                                        width={70}
+                                                        height={70}
+                                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover p-1 w-[70px] h-[70px] sm:w-[80px] sm:h-[80px]" 
                                                         unoptimized={c.imageUrl && c.imageUrl.startsWith('data:')}
                                                     />
                                                 ) : (
                                                     <div className="w-full h-full flex items-center justify-center text-slate-300 group-hover:text-[#198754] transition-colors">
-                                                        <IconComponent size={40} strokeWidth={1.5} />
+                                                        <IconComponent size={36} strokeWidth={1.5} />
                                                     </div>
                                                 )}
                                             </div>
