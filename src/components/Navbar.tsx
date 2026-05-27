@@ -62,7 +62,7 @@ export function Navbar() {
 
     return (
         <div className="bg-[#198754] text-white hidden md:block">
-            <div className="max-w-[1200px] mx-auto flex items-center h-[50px] px-4 relative">
+            <div className="max-w-[1200px] mx-auto flex items-center h-[50px] px-4 relative bg-[#e1cb8a]">
                 {/* Categories Dropdown Trigger (Desktop only) */}
                 <div className="relative h-full" ref={dropdownRef}>
                     <div
