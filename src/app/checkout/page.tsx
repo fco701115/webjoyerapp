@@ -732,7 +732,7 @@ export default function CheckoutPage() {
 
                     {/* Summary side */}
                     <div className="lg:col-span-5">
-                        <div className="bg-slate-900 text-white rounded-[8px] shadow-2xl p-4 sticky top-24">
+                        <div className="bg-slate-900 text-white rounded-[8px] shadow-2xl p-4 sticky top-24 mb-10 lg:mb-0">
                             <h3 className="text-[22px] font-black uppercase tracking-tighter mb-8 border-b border-white/10 pb-6">Resumen del Pedido</h3>
 
                             <div className="space-y-6 mb-10 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
@@ -818,7 +818,7 @@ export default function CheckoutPage() {
                             type="submit"
                             form="checkout-form"
                             disabled={isProcessing}
-                            className={`w-full h-[58px] mt-6 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
+                            className={`w-full h-[58px] mt-10 rounded-[12px] font-black text-[16px] uppercase tracking-widest transition-all lg:hidden flex items-center justify-center gap-3 shadow-xl ${isProcessing ? 'bg-slate-400 cursor-not-allowed' : 'bg-[#198754] text-white hover:bg-[#198754]/90 active:scale-[0.98]'}`}
                         >
                             {isProcessing ? (
                                 <>
