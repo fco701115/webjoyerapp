@@ -83,3 +83,4 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: 'Error al procesar la solicitud de usuario' }, { status: 500 });
     }
 }
+

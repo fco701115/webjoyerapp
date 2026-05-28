@@ -49,3 +49,4 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: 'Failed to create category: ' + (error instanceof Error ? error.message : String(error)) }, { status: 500 });
     }
 }
+

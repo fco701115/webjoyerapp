@@ -314,8 +314,8 @@ export default function AccountPage() {
                     {/* Sidebar Navigation */}
                     <div className="lg:col-span-3 space-y-6 lg:space-y-4">
                         <div className="bg-white rounded-[32px] p-6 lg:p-8 border border-slate-100 shadow-sm text-center flex lg:flex-col items-center lg:justify-center gap-4 lg:gap-0">
-                            <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-tr from-[#198754] to-pink-400 rounded-2xl lg:rounded-[32px] p-[3px] shadow-xl shadow-green-500/20 relative overflow-hidden flex-shrink-0">
-                                <div className="w-full h-full bg-white rounded-[13px] lg:rounded-[28px] flex items-center justify-center font-black text-xl lg:text-3xl text-[#198754] overflow-hidden">
+                            <div className="w-16 h-16 lg:w-24 lg:h-24 bg-gradient-to-tr from-[#bea55b] to-pink-400 rounded-2xl lg:rounded-[32px] p-[3px] shadow-xl shadow-green-500/20 relative overflow-hidden flex-shrink-0">
+                                <div className="w-full h-full bg-white rounded-[13px] lg:rounded-[28px] flex items-center justify-center font-black text-xl lg:text-3xl text-[#bea55b] overflow-hidden">
                                     {user.image ? (
                                         <img src={user.image} alt={user.name} className="w-full h-full object-cover" />
                                     ) : (
@@ -337,48 +337,48 @@ export default function AccountPage() {
                         <div className="sticky top-4 lg:relative lg:top-0 z-30">
                             {/* Mobile scroll indicators */}
                             <div className="lg:hidden absolute left-0 top-0 bottom-0 flex items-center px-1 z-40 pointer-events-none">
-                                <div className="bg-white/80 rounded-full shadow-sm p-0.5 text-[#198754]/50 flex items-center justify-center border border-slate-100 backdrop-blur-sm">
+                                <div className="bg-white/80 rounded-full shadow-sm p-0.5 text-[#bea55b]/50 flex items-center justify-center border border-slate-100 backdrop-blur-sm">
                                     <ChevronLeft size={12} />
                                 </div>
                             </div>
                             <div className="lg:hidden absolute right-0 top-0 bottom-0 flex items-center px-1 z-40 pointer-events-none">
-                                <div className="bg-white/80 rounded-full shadow-sm p-0.5 text-[#198754]/50 flex items-center justify-center border border-slate-100 backdrop-blur-sm">
+                                <div className="bg-white/80 rounded-full shadow-sm p-0.5 text-[#bea55b]/50 flex items-center justify-center border border-slate-100 backdrop-blur-sm">
                                     <ChevronRight size={12} />
                                 </div>
                             </div>
 
                             <div className="bg-white rounded-[32px] border border-slate-100 shadow-sm overflow-hidden p-2 flex flex-row lg:flex-col overflow-x-auto no-scrollbar gap-1 lg:gap-0">
-                                <button onClick={() => setActiveTab('profile')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'profile' ? 'bg-[#198754] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                <button onClick={() => setActiveTab('profile')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'profile' ? 'bg-[#bea55b] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
                                     <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                        <User size={20} className={activeTab === 'profile' ? 'text-white' : 'text-[#198754]'} />
+                                        <User size={20} className={activeTab === 'profile' ? 'text-white' : 'text-[#bea55b]'} />
                                         <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Mi cuenta</span>
                                     </div>
                                     <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'profile' ? 'text-white/40' : 'text-slate-200'}`} />
                                 </button>
-                                <button onClick={() => setActiveTab('orders')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'orders' ? 'bg-[#198754] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                <button onClick={() => setActiveTab('orders')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'orders' ? 'bg-[#bea55b] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
                                     <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                        <Package size={20} className={activeTab === 'orders' ? 'text-white' : 'text-[#198754]'} />
+                                        <Package size={20} className={activeTab === 'orders' ? 'text-white' : 'text-[#bea55b]'} />
                                         <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Mis Pedidos</span>
                                     </div>
                                     <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'orders' ? 'text-white/40' : 'text-slate-200'}`} />
                                 </button>
-                                <button onClick={() => setActiveTab('favorites')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'favorites' ? 'bg-[#198754] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                <button onClick={() => setActiveTab('favorites')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'favorites' ? 'bg-[#bea55b] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
                                     <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                        <Heart size={20} className={activeTab === 'favorites' ? 'text-white' : 'text-[#198754]'} />
+                                        <Heart size={20} className={activeTab === 'favorites' ? 'text-white' : 'text-[#bea55b]'} />
                                         <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Favoritos</span>
                                     </div>
                                     <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'favorites' ? 'text-white/40' : 'text-slate-200'}`} />
                                 </button>
-                                <button onClick={() => setActiveTab('reviews')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'reviews' ? 'bg-[#198754] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                <button onClick={() => setActiveTab('reviews')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'reviews' ? 'bg-[#bea55b] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
                                     <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                        <Star size={20} className={activeTab === 'reviews' ? 'text-white' : 'text-[#198754]'} />
+                                        <Star size={20} className={activeTab === 'reviews' ? 'text-white' : 'text-[#bea55b]'} />
                                         <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Valoraciones</span>
                                     </div>
                                     <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'reviews' ? 'text-white/40' : 'text-slate-200'}`} />
                                 </button>
-                                <button onClick={() => setActiveTab('addresses')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'addresses' ? 'bg-[#198754] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
+                                <button onClick={() => setActiveTab('addresses')} className={`flex flex-col lg:flex-row items-center lg:justify-between p-2 lg:p-4 rounded-2xl transition-all min-w-[85px] lg:w-full flex-shrink-0 ${activeTab === 'addresses' ? 'bg-[#bea55b] text-white shadow-lg shadow-green-500/10' : 'text-slate-500 hover:bg-slate-50'}`}>
                                     <div className="flex flex-col lg:flex-row items-center gap-1.5 lg:gap-3">
-                                        <MapPin size={20} className={activeTab === 'addresses' ? 'text-white' : 'text-[#198754]'} />
+                                        <MapPin size={20} className={activeTab === 'addresses' ? 'text-white' : 'text-[#bea55b]'} />
                                         <span className="font-bold text-[10px] lg:text-[14px] whitespace-nowrap">Direcciones</span>
                                     </div>
                                     <ChevronRight size={16} className={`hidden lg:block ${activeTab === 'addresses' ? 'text-white/40' : 'text-slate-200'}`} />
@@ -410,7 +410,7 @@ export default function AccountPage() {
                                 className="bg-white rounded-[24px] p-4 sm:p-5 border border-slate-100 shadow-sm hover:shadow-xl transition-all group cursor-pointer border-b-4 border-b-green-500/10"
                             >
                                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-50 rounded-xl flex items-center justify-center text-[#198754] group-hover:scale-110 transition-transform flex-shrink-0">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-50 rounded-xl flex items-center justify-center text-[#bea55b] group-hover:scale-110 transition-transform flex-shrink-0">
                                         <ShoppingBag size={18} className="sm:size-[20px]" />
                                     </div>
                                     <div className="overflow-hidden">
@@ -515,7 +515,7 @@ export default function AccountPage() {
                                                 onClick={() => setOrderFilter(f.id)}
                                                 className={`px-[10px] py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all flex-grow sm:flex-grow-0 ${
                                                     orderFilter === f.id 
-                                                    ? 'bg-[#198754] text-white shadow-lg shadow-green-500/20 scale-105' 
+                                                    ? 'bg-[#bea55b] text-white shadow-lg shadow-green-500/20 scale-105' 
                                                     : 'text-slate-400 hover:text-slate-600'
                                                 }`}
                                             >
@@ -544,7 +544,7 @@ export default function AccountPage() {
                                                     {/* Top Row: Basic Info and Quick Actions */}
                                                     <div className="flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
                                                         <div className="flex items-center gap-4">
-                                                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center border border-slate-100 text-[#198754] text-[13px] font-black group-hover:scale-105 transition-transform shadow-sm">
+                                                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center border border-slate-100 text-[#bea55b] text-[13px] font-black group-hover:scale-105 transition-transform shadow-sm">
                                                                 #{order.id.slice(-6).toUpperCase()}
                                                             </div>
                                                             <div className="flex-shrink-0">
@@ -559,7 +559,7 @@ export default function AccountPage() {
                                                                     order.status === 'SHIPPED' ? 'bg-green-100 text-green-700' :
                                                                     order.status === 'CANCELLED' ? 'bg-rose-100 text-rose-600' :
                                                                     order.status === 'PENDING' ? 'bg-[var(--color-amber-100)] text-[var(--color-amber-600)]' :
-                                                                    'bg-green-50 text-[#198754]'
+                                                                    'bg-green-50 text-[#bea55b]'
                                                                 }`}>
                                                                 {order.status === 'PENDING' ? 'En Preparación' : 
                                                                  order.status === 'SHIPPED' ? 'Enviado' : 
@@ -569,7 +569,7 @@ export default function AccountPage() {
                                                             </span>
                                                             <button 
                                                                 onClick={() => setSelectedOrder(order)}
-                                                                className="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-slate-100 text-slate-400 hover:text-[#198754] hover:border-[#198754] transition-all hover:scale-110 shadow-sm"
+                                                                className="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-slate-100 text-slate-400 hover:text-[#bea55b] hover:border-[#bea55b] transition-all hover:scale-110 shadow-sm"
                                                             >
                                                                 <Eye size={18} />
                                                             </button>
@@ -621,7 +621,7 @@ export default function AccountPage() {
                                                     selectedOrder.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-700' : 
                                                     selectedOrder.status === 'SHIPPED' ? 'bg-green-100 text-green-700' :
                                                     selectedOrder.status === 'PENDING' ? 'bg-[var(--color-amber-100)] text-[var(--color-amber-600)]' :
-                                                    'bg-green-50 text-[#198754]'
+                                                    'bg-green-50 text-[#bea55b]'
                                                 }`}>
                                                     {selectedOrder.status === 'PENDING' ? 'En Preparación' : 
                                                      selectedOrder.status === 'SHIPPED' ? 'Enviado' :
@@ -654,7 +654,7 @@ export default function AccountPage() {
                                                             <p className="text-slate-400 text-[12px] font-medium">Cant: {item.quantity} × ${item.price.toLocaleString()}</p>
                                                         </div>
                                                         <div className="text-right">
-                                                            <p className="font-black text-[#198754] text-sm">${(item.price * item.quantity).toLocaleString()}</p>
+                                                            <p className="font-black text-[#bea55b] text-sm">${(item.price * item.quantity).toLocaleString()}</p>
                                                         </div>
                                                     </div>
                                                 ))}
@@ -674,7 +674,7 @@ export default function AccountPage() {
                                             </div>
                                             <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                                                 <span className="text-lg font-black text-slate-900">Total</span>
-                                                <span className="text-2xl font-black text-[#198754]">${selectedOrder.total.toLocaleString()}</span>
+                                                <span className="text-2xl font-black text-[#bea55b]">${selectedOrder.total.toLocaleString()}</span>
                                             </div>
                                         </div>
 
@@ -687,7 +687,7 @@ export default function AccountPage() {
                                                     if (!addr.type) return null;
                                                     return (
                                                         <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 border ${
-                                                            addr.type === 'Casa' ? 'bg-green-50 text-[#198754] border-green-100' :
+                                                            addr.type === 'Casa' ? 'bg-green-50 text-[#bea55b] border-green-100' :
                                                             addr.type === 'Trabajo' ? 'bg-amber-50 text-amber-900 border-amber-100' :
                                                             'bg-white text-slate-500 border-slate-200'
                                                         }`}>
@@ -706,8 +706,8 @@ export default function AccountPage() {
                                                 
                                                 {formatAddress(selectedOrder.address).indications && (
                                                     <div className="mb-2">
-                                                        <span className="text-[9px] font-black text-[#198754] uppercase tracking-widest block mb-0.5">Indicación para la entrega:</span>
-                                                        <p className="text-[#198754] font-black text-[13px] bg-[#198754]/5 inline-block px-3 py-1.5 rounded-xl border border-[#198754]/10">
+                                                        <span className="text-[9px] font-black text-[#bea55b] uppercase tracking-widest block mb-0.5">Indicación para la entrega:</span>
+                                                        <p className="text-[#bea55b] font-black text-[13px] bg-[#bea55b]/5 inline-block px-3 py-1.5 rounded-xl border border-[#bea55b]/10">
                                                             {formatAddress(selectedOrder.address).indications}
                                                         </p>
                                                     </div>
@@ -749,7 +749,7 @@ export default function AccountPage() {
                                         <div className="py-20 flex flex-col items-center justify-center text-center">
                                             <Heart size={48} className="text-slate-100 mb-4" />
                                             <p className="text-slate-400 font-bold uppercase tracking-widest text-[11px]">No tienes productos en favoritos.</p>
-                                            <Link href="/" className="mt-4 bg-[#198754] text-white px-8 py-3 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-green-500/20">Explorar Productos</Link>
+                                            <Link href="/" className="mt-4 bg-[#bea55b] text-white px-8 py-3 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-green-500/20">Explorar Productos</Link>
                                         </div>
                                     ) : (
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -764,10 +764,10 @@ export default function AccountPage() {
                                                         />
                                                     </Link>
                                                     <div className="flex-1 py-1 pr-8">
-                                                        <Link href={`/product/${item.id}`} className="block font-black text-slate-900 hover:text-[#198754] transition-colors line-clamp-2 leading-tight">
+                                                        <Link href={`/product/${item.id}`} className="block font-black text-slate-900 hover:text-[#bea55b] transition-colors line-clamp-2 leading-tight">
                                                             {item.name}
                                                         </Link>
-                                                        <p className="text-[#198754] font-black mt-2">${item.price.toLocaleString()}</p>
+                                                        <p className="text-[#bea55b] font-black mt-2">${item.price.toLocaleString()}</p>
                                                     </div>
                                                     <button 
                                                         onClick={() => toggleWishlist(item)}
@@ -800,7 +800,7 @@ export default function AccountPage() {
                                         userReviews.map((rev, i) => (
                                             <div key={i} className="bg-slate-50/50 p-6 rounded-3xl border border-slate-100 space-y-3">
                                                 <div className="flex items-center justify-between">
-                                                    <Link href={`/product/${rev.productId}`} className="font-black text-slate-900 hover:text-[#198754] transition-colors">{rev.productName}</Link>
+                                                    <Link href={`/product/${rev.productId}`} className="font-black text-slate-900 hover:text-[#bea55b] transition-colors">{rev.productName}</Link>
                                                     <span className="text-[11px] font-bold text-slate-400">{rev.date}</span>
                                                 </div>
                                                 <div className="flex text-amber-400 gap-1">
@@ -830,7 +830,7 @@ export default function AccountPage() {
                                                 type="text" 
                                                 value={editName}
                                                 onChange={(e) => setEditName(e.target.value)}
-                                                className="w-full p-4 bg-white border-2 border-green-100 rounded-2xl font-bold text-slate-700 outline-none focus:border-[#198754] transition-all"
+                                                className="w-full p-4 bg-white border-2 border-green-100 rounded-2xl font-bold text-slate-700 outline-none focus:border-[#bea55b] transition-all"
                                                 placeholder="Tu nombre"
                                             />
                                         ) : (
@@ -866,7 +866,7 @@ export default function AccountPage() {
                                             </button>
                                             <button 
                                                 onClick={handleSaveProfile}
-                                                className="bg-[#198754] text-white px-8 py-3 rounded-xl font-black text-[13px] uppercase tracking-widest hover:bg-green-600 shadow-lg shadow-green-500/20 transition-all active:scale-95"
+                                                className="bg-[#bea55b] text-white px-8 py-3 rounded-xl font-black text-[13px] uppercase tracking-widest hover:bg-green-600 shadow-lg shadow-green-500/20 transition-all active:scale-95"
                                             >
                                                 Guardar Cambios
                                             </button>
@@ -893,7 +893,7 @@ export default function AccountPage() {
                                         <button onClick={() => {
                                             setNewAddress(prev => ({ ...prev, contactName: user?.name || '' }));
                                             setIsAddingAddress(true);
-                                        }} className="bg-[#198754] text-white px-6 py-2.5 rounded-xl font-black text-[11px] uppercase tracking-widest hover:bg-green-600 transition-all flex items-center gap-2">
+                                        }} className="bg-[#bea55b] text-white px-6 py-2.5 rounded-xl font-black text-[11px] uppercase tracking-widest hover:bg-green-600 transition-all flex items-center gap-2">
                                             Añadir Nueva
                                         </button>
                                     )}
@@ -913,7 +913,7 @@ export default function AccountPage() {
                                                         <label key={type.value} className="flex items-center gap-3 cursor-pointer group">
                                                             <div 
                                                                 onClick={() => setNewAddress({...newAddress, title: type.value})}
-                                                                className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${newAddress.title === type.value ? 'border-[#198754] bg-[#198754]' : 'border-slate-300 bg-white group-hover:border-[#198754]'}`}
+                                                                className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${newAddress.title === type.value ? 'border-[#bea55b] bg-[#bea55b]' : 'border-slate-300 bg-white group-hover:border-[#bea55b]'}`}
                                                             >
                                                                 {newAddress.title === type.value && <div className="w-2 h-2 bg-white rounded-full" />}
                                                             </div>
@@ -932,7 +932,7 @@ export default function AccountPage() {
                                                         placeholder="Ej. Nombre de la calle y Nro. domicilio" 
                                                         value={newAddress.street} 
                                                         onChange={e => setNewAddress({...newAddress, street: e.target.value})} 
-                                                        className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                        className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                     />
                                                 </div>
 
@@ -943,7 +943,7 @@ export default function AccountPage() {
                                                         placeholder="Ej. Entre calles, color de casa, no tiene timbre" 
                                                         value={newAddress.indications} 
                                                         onChange={e => setNewAddress({...newAddress, indications: e.target.value})} 
-                                                        className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                        className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                     />
                                                 </div>
 
@@ -954,7 +954,7 @@ export default function AccountPage() {
                                                             type="text" 
                                                             value={newAddress.locality} 
                                                             onChange={e => setNewAddress({...newAddress, locality: e.target.value})} 
-                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                         />
                                                     </div>
                                                     <div className="space-y-2">
@@ -963,7 +963,7 @@ export default function AccountPage() {
                                                             type="text" 
                                                             value={newAddress.neighborhood} 
                                                             onChange={e => setNewAddress({...newAddress, neighborhood: e.target.value})} 
-                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                         />
                                                     </div>
                                                 </div>
@@ -975,7 +975,7 @@ export default function AccountPage() {
                                                             type="text" 
                                                             value={newAddress.city} 
                                                             onChange={e => setNewAddress({...newAddress, city: e.target.value})} 
-                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                         />
                                                     </div>
                                                     <div className="space-y-2">
@@ -984,7 +984,7 @@ export default function AccountPage() {
                                                             type="text" 
                                                             value={newAddress.postalCode} 
                                                             onChange={e => setNewAddress({...newAddress, postalCode: e.target.value})} 
-                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                            className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                         />
                                                     </div>
                                                 </div>
@@ -998,7 +998,7 @@ export default function AccountPage() {
                                                                 type="text" 
                                                                 value={newAddress.contactName} 
                                                                 onChange={e => setNewAddress({...newAddress, contactName: e.target.value})} 
-                                                                className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                                className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                             />
                                                         </div>
                                                         <div className="space-y-2 max-w-sm">
@@ -1007,7 +1007,7 @@ export default function AccountPage() {
                                                                 type="text" 
                                                                 value={newAddress.phone} 
                                                                 onChange={e => setNewAddress({...newAddress, phone: e.target.value})} 
-                                                                className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#198754] transition-all" 
+                                                                className="w-full h-12 px-5 bg-white border border-slate-200 rounded-xl font-bold text-slate-800 outline-none focus:ring-4 ring-green-500/10 focus:border-[#bea55b] transition-all" 
                                                             />
                                                         </div>
                                                     </div>
@@ -1016,7 +1016,7 @@ export default function AccountPage() {
                                         </div>
                                         <div className="flex gap-3 justify-end pt-6 border-t border-slate-100">
                                             <button onClick={() => setIsAddingAddress(false)} className="px-8 py-3 rounded-xl text-slate-500 font-bold text-sm hover:bg-slate-100 transition-colors">Cancelar</button>
-                                            <button onClick={handleSaveAddress} className="px-10 py-3 rounded-xl text-white font-black text-sm bg-[#198754] hover:bg-green-600 transition-all shadow-lg shadow-green-500/20 active:scale-95 uppercase tracking-widest">Guardar Dirección</button>
+                                            <button onClick={handleSaveAddress} className="px-10 py-3 rounded-xl text-white font-black text-sm bg-[#bea55b] hover:bg-green-600 transition-all shadow-lg shadow-green-500/20 active:scale-95 uppercase tracking-widest">Guardar Dirección</button>
                                         </div>
                                     </div>
                                 ) : addresses.length === 0 ? (
@@ -1040,7 +1040,7 @@ export default function AccountPage() {
                                                 
                                                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                                                     <span className={`px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest flex items-center gap-2 border ${
-                                                        addr.title === 'Casa' ? 'bg-green-50 text-[#198754] border-green-100' :
+                                                        addr.title === 'Casa' ? 'bg-green-50 text-[#bea55b] border-green-100' :
                                                         addr.title === 'Trabajo' ? 'bg-amber-50 text-amber-900 border-amber-100' :
                                                         'bg-slate-50 text-slate-700 border-slate-100'
                                                     }`}>
@@ -1104,7 +1104,7 @@ export default function AccountPage() {
                                     <div className="space-y-4">
                                         <div className="flex">
                                             <span className={`border px-4 py-2 rounded-2xl flex items-center gap-2 font-extrabold text-[12px] uppercase tracking-wider shadow-sm ${
-                                                viewingAddress.title === 'Casa' ? 'bg-green-50 text-[#198754] border-green-100' :
+                                                viewingAddress.title === 'Casa' ? 'bg-green-50 text-[#bea55b] border-green-100' :
                                                 viewingAddress.title === 'Trabajo' ? 'bg-amber-50 text-amber-900 border-amber-100' :
                                                 'bg-slate-50 text-slate-700 border-slate-100'
                                             }`}>
@@ -1171,3 +1171,4 @@ export default function AccountPage() {
          </div>
      );
  }
+

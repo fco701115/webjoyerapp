@@ -84,3 +84,4 @@ export function AdminHeader({ setIsOpen }: { setIsOpen: (val: boolean) => void }
         </header>
     );
 }
+

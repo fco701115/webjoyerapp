@@ -51,3 +51,4 @@ export function FeaturesSection() {
         </div>
     );
 }
+

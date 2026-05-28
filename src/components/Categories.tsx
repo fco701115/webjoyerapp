@@ -99,14 +99,14 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                     <div className="relative group/nav">
                         <button
                             onClick={() => scroll('left')}
-                            className="absolute left-[-10px] md:left-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#198754] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
+                            className="absolute left-[-10px] md:left-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#bea55b] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
                         >
                             <ChevronLeft size={18} className="md:w-6 md:h-6" />
                         </button>
 
                         <button
                             onClick={() => scroll('right')}
-                            className="absolute right-[-10px] md:right-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#198754] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
+                            className="absolute right-[-10px] md:right-[-20px] top-[42.5px] md:top-1/2 -translate-y-1/2 z-20 bg-white border border-slate-100 shadow-xl rounded-full p-2 md:p-3 text-slate-400 hover:text-[#bea55b] hover:scale-110 transition-all md:opacity-0 md:group-hover/nav:opacity-100 flex items-center justify-center"
                         >
                             <ChevronRight size={18} className="md:w-6 md:h-6" />
                         </button>
@@ -128,7 +128,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                         prefetch={true}
                                         className="flex-shrink-0 snap-start group cursor-pointer"
                                     >
-                                        <div className="w-[100px] h-[100px] sm:w-[123px] sm:h-[123px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex flex-col items-center group-hover:border-[#198754] group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-500 ease-out overflow-hidden relative">
+                                        <div className="w-[100px] h-[100px] sm:w-[123px] sm:h-[123px] rounded-[15px_0_15px_0] bg-white shadow-sm border border-[#ddd] flex flex-col items-center group-hover:border-[#bea55b] group-hover:shadow-2xl group-hover:shadow-green-500/10 transition-all duration-500 ease-out overflow-hidden relative">
                                             {/* Image Section */}
                                             <div className="relative w-full h-[78px] sm:h-[85px] p-2 bg-slate-50/50 group-hover:bg-transparent transition-colors flex items-center justify-center">
                                                 {c.imageUrl ? (
@@ -141,7 +141,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                                         unoptimized={c.imageUrl && c.imageUrl.startsWith('data:')}
                                                     />
                                                 ) : (
-                                                    <div className="w-full h-full flex items-center justify-center text-slate-300 group-hover:text-[#198754] transition-colors">
+                                                    <div className="w-full h-full flex items-center justify-center text-slate-300 group-hover:text-[#bea55b] transition-colors">
                                                         <IconComponent size={36} strokeWidth={1.5} />
                                                     </div>
                                                 )}
@@ -149,7 +149,7 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
                                             
                                             {/* Name Section */}
                                             <div className="w-full flex-grow flex items-center justify-center px-2 bg-white border-t border-[#f0f0f0] group-hover:bg-green-50/30 transition-colors">
-                                                <span className="text-[13px] font-black text-slate-900 group-hover:text-[#198754] transition-colors text-center capitalize tracking-tight leading-tight line-clamp-1">
+                                                <span className="text-[13px] font-black text-slate-900 group-hover:text-[#bea55b] transition-colors text-center capitalize tracking-tight leading-tight line-clamp-1">
                                                     {c.name ? c.name.toLowerCase() : ''}
                                                 </span>
                                             </div>
@@ -164,3 +164,4 @@ export function Categories({ initialCategories }: { initialCategories?: any[] })
         </div>
     );
 }
+

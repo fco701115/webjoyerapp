@@ -89,7 +89,7 @@ export default function RegisterPage() {
                         Redirigiéndote para iniciar sesión...
                     </p>
                     <div className="mt-8 flex justify-center">
-                        <div className="w-8 h-8 border-4 border-[#198754]/20 border-t-[#198754] rounded-full animate-spin" />
+                        <div className="w-8 h-8 border-4 border-[#bea55b]/20 border-t-[#bea55b] rounded-full animate-spin" />
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@ export default function RegisterPage() {
             <div className="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 bg-white rounded-[48px] shadow-2xl overflow-hidden border border-slate-100">
 
                 {/* Visual Side */}
-                <div className="hidden lg:flex bg-[#198754] p-16 flex-col justify-between relative overflow-hidden">
+                <div className="hidden lg:flex bg-[#bea55b] p-16 flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full translate-y-1/3 -translate-x-1/4" />
 
@@ -136,7 +136,7 @@ export default function RegisterPage() {
                 {/* Form Side */}
                 <div className="p-8 md:p-12 flex flex-col justify-center max-h-[100vh] overflow-y-auto">
                     <div className="mb-8">
-                        <div className="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-[#198754] mb-6">
+                        <div className="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-[#bea55b] mb-6">
                             <UserIcon size={24} />
                         </div>
                         <h1 className="text-[32px] font-black text-slate-900 tracking-tighter mb-2">Crear Cuenta</h1>
@@ -207,7 +207,7 @@ export default function RegisterPage() {
 
                         <button
                             disabled={isLoading}
-                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#198754] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
+                            className={`w-full h-14 rounded-2xl font-black text-[14px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl ${isLoading ? 'bg-slate-100 text-slate-400' : 'bg-[#bea55b] text-white hover:bg-slate-900 active:scale-95 shadow-green-500/10'}`}
                         >
                             {isLoading ? 'Creando cuenta...' : (
                                 <>
@@ -247,10 +247,11 @@ export default function RegisterPage() {
                     </div>
 
                     <p className="mt-8 text-center text-slate-400 font-medium text-sm">
-                        ¿Ya tienes cuenta? <Link href="/login" className="text-[#198754] font-black hover:underline">Inicia Sesión</Link>
+                        ¿Ya tienes cuenta? <Link href="/login" className="text-[#bea55b] font-black hover:underline">Inicia Sesión</Link>
                     </p>
                 </div>
             </div>
         </div>
     );
 }
+

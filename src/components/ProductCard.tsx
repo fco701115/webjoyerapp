@@ -56,7 +56,7 @@ export function ProductCard({ product }: { product: Product }) {
 
     return (
         <div 
-            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#ddd] hover:border-[#198754] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group"
+            className="w-[168px] h-[308px] sm:w-[211.2px] sm:max-w-[211.2px] sm:h-[348px] border-[1px] border-[#ddd] hover:border-[#bea55b] p-2 sm:p-[13px] bg-white relative sm:hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col mx-auto rounded-[5px] overflow-hidden group"
         >
             <Link 
                 href={`/product/${product.id}`}
@@ -87,7 +87,7 @@ export function ProductCard({ product }: { product: Product }) {
 
                 {/* Product Name Area */}
                 <div className="w-full px-1 mt-4">
-                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] sm:group-hover:text-[#198754] transition-colors">
+                    <h3 className="text-[14px] font-bold text-slate-800 line-clamp-2 leading-tight h-[36px] sm:group-hover:text-[#bea55b] transition-colors">
                         {product.name}
                     </h3>
                 </div>
@@ -142,7 +142,7 @@ export function ProductCard({ product }: { product: Product }) {
                 </button>
                 <button
                     onClick={handleAddToCart}
-                    className="w-[35px] h-[35px] border border-slate-200 rounded-[5px] flex items-center justify-center hover:bg-green-50 transition-all text-slate-500 hover:text-[#198754] shadow-sm active:scale-90"
+                    className="w-[35px] h-[35px] border border-slate-200 rounded-[5px] flex items-center justify-center hover:bg-green-50 transition-all text-slate-500 hover:text-[#bea55b] shadow-sm active:scale-90"
                 >
                     <ShoppingCart size={18} />
                 </button>
@@ -150,3 +150,4 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
     );
 }
+

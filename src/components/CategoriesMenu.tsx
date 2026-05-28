@@ -73,7 +73,7 @@ export function CategoriesMenu() {
             >
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-                    <h2 className="text-[18px] font-extrabold text-[#198754] uppercase tracking-wide">Categorías</h2>
+                    <h2 className="text-[18px] font-extrabold text-[#bea55b] uppercase tracking-wide">Categorías</h2>
                     <button
                         onClick={() => setCategoriesOpen(false)}
                         className="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-400"
@@ -89,10 +89,10 @@ export function CategoriesMenu() {
                             key={cat.id || i}
                             href={`/search?category=${cat.id}`}
                             onClick={() => setCategoriesOpen(false)}
-                            className="flex items-center justify-between px-6 py-4 border-b border-gray-50 text-gray-700 hover:bg-gray-50 hover:text-[#198754] transition-all group"
+                            className="flex items-center justify-between px-6 py-4 border-b border-gray-50 text-gray-700 hover:bg-gray-50 hover:text-[#bea55b] transition-all group"
                         >
                             <div className="flex items-center gap-4">
-                                <span className="text-gray-400 group-hover:text-[#198754] group-hover:scale-110 transition-all w-8 h-8 flex items-center justify-center relative overflow-hidden rounded-lg">
+                                <span className="text-gray-400 group-hover:text-[#bea55b] group-hover:scale-110 transition-all w-8 h-8 flex items-center justify-center relative overflow-hidden rounded-lg">
                                     {cat.imageUrl ? (
                                         <Image 
                                             src={cat.imageUrl} 
@@ -123,3 +123,4 @@ export function CategoriesMenu() {
         </>
     );
 }
+

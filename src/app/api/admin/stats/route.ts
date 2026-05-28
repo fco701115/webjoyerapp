@@ -91,3 +91,4 @@ export async function GET() {
         return NextResponse.json({ error: error.message || 'Failed to fetch stats' }, { status: 500 });
     }
 }
+

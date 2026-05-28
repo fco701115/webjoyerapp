@@ -71,7 +71,7 @@ export default function AdminDashboard() {
             <div className="flex items-center justify-center min-h-[600px]">
                 <div className="flex flex-col items-center gap-6">
                     <div className="relative">
-                        <Loader2 className="w-16 h-16 text-[#198754] animate-spin" />
+                        <Loader2 className="w-16 h-16 text-[#bea55b] animate-spin" />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-8 h-8 bg-green-100 rounded-full" />
                         </div>
@@ -85,7 +85,7 @@ export default function AdminDashboard() {
     const statsConfig = [
         { label: 'Ventas Totales', value: `$${data?.stats?.revenue?.toLocaleString() || '0'}`, icon: DollarSign, color: 'from-emerald-400 to-emerald-600', shadow: 'shadow-emerald-500/20', href: '/admin/orders', detail: '+12.4% vs last month' },
         { label: 'Ordenes Totales', value: data?.stats?.orders || '0', icon: ShoppingCart, color: 'from-pink-400 to-green-600', shadow: 'shadow-green-500/20', href: '/admin/orders', detail: '24 new orders today' },
-        { label: 'Usuarios Activos', value: data?.stats?.users || '0', icon: Users, color: 'from-pink-400 to-[#198754]', shadow: 'shadow-green-500/20', href: '/admin/users', detail: '80% conversion rate' },
+        { label: 'Usuarios Activos', value: data?.stats?.users || '0', icon: Users, color: 'from-pink-400 to-[#bea55b]', shadow: 'shadow-green-500/20', href: '/admin/users', detail: '80% conversion rate' },
         { label: 'Valoración Media', value: '4.8', icon: Star, color: 'from-amber-400 to-amber-600', shadow: 'shadow-amber-500/20', href: '/admin/reviews', detail: 'Based on 48 reviews' },
     ];
 
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
             <div className="bg-white/40 backdrop-blur-md rounded-[40px] p-10 border border-white/60 shadow-xl shadow-slate-200/40">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div className="flex items-center gap-5">
-                        <div className="w-16 h-16 bg-gradient-to-tr from-[#198754] to-pink-400 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-green-500/30">
+                        <div className="w-16 h-16 bg-gradient-to-tr from-[#bea55b] to-pink-400 rounded-3xl flex items-center justify-center text-white shadow-xl shadow-green-500/30">
                             <LayoutDashboard size={32} />
                         </div>
                         <div>
@@ -118,10 +118,10 @@ export default function AdminDashboard() {
                             }`}
                         >
 
-                            <ShoppingCart size={18} className="text-[#198754]" />
+                            <ShoppingCart size={18} className="text-[#bea55b]" />
                             <span>Órdenes Recientes</span>
                             {data?.stats?.pendingOrders > 0 && (
-                                <span className="bg-[#198754] text-white min-w-[20px] h-[20px] px-1.5 rounded-full text-[10px] font-black flex items-center justify-center shadow-lg shadow-green-500/30 animate-pulse">
+                                <span className="bg-[#bea55b] text-white min-w-[20px] h-[20px] px-1.5 rounded-full text-[10px] font-black flex items-center justify-center shadow-lg shadow-green-500/30 animate-pulse">
                                     {data.stats.pendingOrders}
                                 </span>
                             )}
@@ -130,7 +130,7 @@ export default function AdminDashboard() {
                         {/* El buscador se puede integrar en la barra lateral o como un modal global más adelante */}
 
                         {data?.stats?.unreadMessages > 0 && (
-                            <Link href="/admin/messages" className="h-14 px-6 bg-[#198754] rounded-2xl shadow-xl shadow-green-500/20 font-black text-[13px] text-white hover:scale-105 transition-all flex items-center gap-3 animate-in zoom-in">
+                            <Link href="/admin/messages" className="h-14 px-6 bg-[#bea55b] rounded-2xl shadow-xl shadow-green-500/20 font-black text-[13px] text-white hover:scale-105 transition-all flex items-center gap-3 animate-in zoom-in">
                                 <Mail size={18} />
                                 {data.stats.unreadMessages} Mensajes
                             </Link>
@@ -150,7 +150,7 @@ export default function AdminDashboard() {
                                     <stat.icon size={20} className="sm:hidden" />
                                     <stat.icon size={28} className="hidden sm:block" />
                                 </div>
-                                <div className="p-1.5 sm:p-3 rounded-lg sm:rounded-2xl bg-slate-50 text-slate-300 group-hover:text-[#198754] group-hover:bg-green-50 transition-all duration-500">
+                                <div className="p-1.5 sm:p-3 rounded-lg sm:rounded-2xl bg-slate-50 text-slate-300 group-hover:text-[#bea55b] group-hover:bg-green-50 transition-all duration-500">
                                     <ArrowUpRight size={16} className="sm:hidden" />
                                     <ArrowUpRight size={20} className="hidden sm:block" />
                                 </div>
@@ -185,7 +185,7 @@ export default function AdminDashboard() {
                         <div className="sm:absolute sm:top-0 sm:right-0 sm:p-8 p-4">
                              <div className="flex bg-slate-50 p-1 rounded-xl w-fit">
                                  {['Week', 'Month', 'Year'].map(t => (
-                                     <button key={t} className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-white text-[#198754] shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>
+                                     <button key={t} className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all ${t === 'Month' ? 'bg-white text-[#bea55b] shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>
                                          {t}
                                      </button>
                                  ))}
@@ -226,7 +226,7 @@ export default function AdminDashboard() {
                             <h3 className="text-xl font-black text-slate-900 tracking-tight">Actividad</h3>
                             <p className="text-slate-400 font-bold text-[13px]">Transacciones en tiempo real</p>
                         </div>
-                        <Link href="/admin/orders" className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#198754] transition-all">
+                        <Link href="/admin/orders" className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#bea55b] transition-all">
                             <ArrowUpRight size={20} />
                         </Link>
                     </div>
@@ -235,7 +235,7 @@ export default function AdminDashboard() {
                         {data?.recentOrders?.length > 0 ? (
                             data.recentOrders.map((order: any, i: number) => (
                                 <Link key={i} href={`/admin/orders`} className="flex items-center gap-5 group p-2 -mx-2 rounded-3xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-100">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 group-hover:border-green-200 group-hover:text-[#198754] transition-all shadow-sm">
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 group-hover:border-green-200 group-hover:text-[#bea55b] transition-all shadow-sm">
                                         <ShoppingBag size={24} />
                                     </div>
                                     <div className="flex-grow min-w-0">
@@ -287,3 +287,4 @@ function ShoppingBag({ size, className }: { size: number, className?: string }) 
         </svg>
     )
 }
+

@@ -235,7 +235,7 @@ export default function CheckoutPage() {
         return (
             <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
                 <h2 className="text-2xl font-black text-slate-900 mb-2 uppercase tracking-tighter">Tu carro está vacío</h2>
-                <Link href="/" className="text-[#198754] font-bold hover:underline">Ir a comprar productos</Link>
+                <Link href="/" className="text-[#bea55b] font-bold hover:underline">Ir a comprar productos</Link>
             </div>
         );
     }
@@ -256,22 +256,22 @@ export default function CheckoutPage() {
                         <div className="bg-white rounded-[8px] shadow-sm border border-slate-100 p-4 sm:p-8 md:p-12">
 
                             {!showAddressForm && savedAddresses.length > 0 ? (
-                                <div className="p-4 border-2 border-[#198754] rounded-2xl bg-[#198754]/5 flex justify-between items-start group relative mb-8">
+                                <div className="p-4 border-2 border-[#bea55b] rounded-2xl bg-[#bea55b]/5 flex justify-between items-start group relative mb-8">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm text-[#198754] flex items-center justify-center border border-[#198754]/20 mt-1">
+                                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm text-[#bea55b] flex items-center justify-center border border-[#bea55b]/20 mt-1">
                                             <MapPin size={24} />
                                         </div>
                                         <div>
                                             <p className="font-black text-slate-900 flex items-center gap-2 text-lg">
                                                 {savedAddresses[selectedAddressIndex]?.title || 'Dirección de Envío'}
-                                                <span className="px-2 py-0.5 bg-[#198754] text-white text-[10px] rounded-full uppercase tracking-widest font-bold ml-2">Seleccionada</span>
+                                                <span className="px-2 py-0.5 bg-[#bea55b] text-white text-[10px] rounded-full uppercase tracking-widest font-bold ml-2">Seleccionada</span>
                                             </p>
 
                                             {/* Mobile Change Button */}
                                             <button 
                                                 type="button"
                                                 onClick={() => setIsAddressModalOpen(true)}
-                                                className="md:hidden text-[#198754] font-black text-[11px] uppercase tracking-widest px-3 py-1 bg-[#198754]/10 rounded-lg transition-colors mt-2 mb-2"
+                                                className="md:hidden text-[#bea55b] font-black text-[11px] uppercase tracking-widest px-3 py-1 bg-[#bea55b]/10 rounded-lg transition-colors mt-2 mb-2"
                                             >
                                                 Cambiar Dirección
                                             </button>
@@ -281,8 +281,8 @@ export default function CheckoutPage() {
                                             
                                             {savedAddresses[selectedAddressIndex]?.indications && (
                                                 <div className="mt-2 mb-1">
-                                                    <span className="text-[9px] font-black text-[#198754] uppercase tracking-widest block mb-0.5">Indicación para la entrega:</span>
-                                                    <p className="text-[#198754] font-bold text-[12px] bg-[#198754]/5 inline-block px-3 py-1.5 rounded-xl border border-[#198754]/10">
+                                                    <span className="text-[9px] font-black text-[#bea55b] uppercase tracking-widest block mb-0.5">Indicación para la entrega:</span>
+                                                    <p className="text-[#bea55b] font-bold text-[12px] bg-[#bea55b]/5 inline-block px-3 py-1.5 rounded-xl border border-[#bea55b]/10">
                                                         {savedAddresses[selectedAddressIndex].indications}
                                                     </p>
                                                 </div>
@@ -296,7 +296,7 @@ export default function CheckoutPage() {
                                             )}
                                             <p className="text-slate-500 font-medium">{formData.city}</p>
                                             {savedAddresses[selectedAddressIndex]?.mapUrl && (
-                                                <div className="mt-4 rounded-xl overflow-hidden border border-[#198754]/20 h-[110px] relative group/checkout-map shadow-inner">
+                                                <div className="mt-4 rounded-xl overflow-hidden border border-[#bea55b]/20 h-[110px] relative group/checkout-map shadow-inner">
                                                     <iframe 
                                                         width="100%" 
                                                         height="100%" 
@@ -309,9 +309,9 @@ export default function CheckoutPage() {
                                                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[90%] pointer-events-none z-[10] flex flex-col items-center scale-75">
                                                         <div className="w-3 h-1 bg-black/20 rounded-full blur-[1px] mb-[-2px]"></div>
                                                         <svg width="32" height="40" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md">
-                                                            <path d="M50 115C45 105 5 60 5 40C5 17.9086 25.1472 0 50 0C74.8528 0 95 17.9086 95 40C95 60 55 105 50 115Z" fill="#198754" stroke="white" strokeWidth="4" strokeLinejoin="round"/>
+                                                            <path d="M50 115C45 105 5 60 5 40C5 17.9086 25.1472 0 50 0C74.8528 0 95 17.9086 95 40C95 60 55 105 50 115Z" fill="#bea55b" stroke="white" strokeWidth="4" strokeLinejoin="round"/>
                                                             <circle cx="50" cy="40" r="22" fill="white" />
-                                                            <path d="M50 24L32 38H38V58H62V38H68L50 24Z" fill="#198754" />
+                                                            <path d="M50 24L32 38H38V58H62V38H68L50 24Z" fill="#bea55b" />
                                                             <path d="M48 50H52V58H48V50Z" fill="white" />
                                                         </svg>
                                                     </div>
@@ -323,7 +323,7 @@ export default function CheckoutPage() {
                                     <button 
                                         type="button"
                                         onClick={() => setIsAddressModalOpen(true)}
-                                        className="hidden md:block text-[#198754] font-black text-[12px] uppercase tracking-widest px-4 py-2 hover:bg-green-100 rounded-xl transition-colors shrink-0"
+                                        className="hidden md:block text-[#bea55b] font-black text-[12px] uppercase tracking-widest px-4 py-2 hover:bg-green-100 rounded-xl transition-colors shrink-0"
                                     >
                                         Cambiar
                                     </button>
@@ -355,7 +355,7 @@ export default function CheckoutPage() {
                                                         });
                                                     }}
                                                     type="text"
-                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                 />
                                             </div>
 
@@ -367,7 +367,7 @@ export default function CheckoutPage() {
                                                         value={formData.phone}
                                                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                                         type="tel"
-                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-2 mb-[12px] mt-[12px] md:mt-0">
@@ -377,7 +377,7 @@ export default function CheckoutPage() {
                                                         value={formData.email}
                                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                         type="email"
-                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                     />
                                                 </div>
                                             </div>
@@ -402,7 +402,7 @@ export default function CheckoutPage() {
                                                             onChange={() => setFormData({ ...formData, addressType: type })}
                                                             className="hidden"
                                                         />
-                                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${formData.addressType === type ? 'border-[#198754] bg-[#198754]' : 'border-slate-300'}`}>
+                                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${formData.addressType === type ? 'border-[#bea55b] bg-[#bea55b]' : 'border-slate-300'}`}>
                                                             {formData.addressType === type && <div className="w-2 h-2 bg-white rounded-full" />}
                                                         </div>
                                                         <span className="text-sm font-bold text-slate-600 flex items-center gap-1.5">
@@ -420,7 +420,7 @@ export default function CheckoutPage() {
                                                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                                     type="text"
                                                     placeholder="Ej. Nombre de la calle y Nro. domicilio"
-                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                 />
                                             </div>
 
@@ -431,7 +431,7 @@ export default function CheckoutPage() {
                                                     onChange={(e) => setFormData({ ...formData, indications: e.target.value })}
                                                     type="text"
                                                     placeholder="Ej. Entre calles, color de casa, no tiene timbre"
-                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                    className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                 />
                                             </div>
 
@@ -443,7 +443,7 @@ export default function CheckoutPage() {
                                                         value={formData.locality}
                                                         onChange={(e) => setFormData({ ...formData, locality: e.target.value })}
                                                         type="text"
-                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-2 mb-[12px] mt-[12px] md:mt-0">
@@ -452,7 +452,7 @@ export default function CheckoutPage() {
                                                         value={formData.neighborhood}
                                                         onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
                                                         type="text"
-                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                     />
                                                 </div>
                                             </div>
@@ -464,7 +464,7 @@ export default function CheckoutPage() {
                                                         value={formData.city}
                                                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                                                         type="text"
-                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-2 mb-[12px] mt-[12px] md:mt-0">
@@ -473,7 +473,7 @@ export default function CheckoutPage() {
                                                         value={formData.postalCode}
                                                         onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
                                                         type="text"
-                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#198754]/5 focus:border-[#198754] transition-all outline-none"
+                                                        className="h-[45px] px-5 bg-white border border-[#CECECE] rounded-[12px] font-bold text-slate-900 focus:ring-4 ring-[#bea55b]/5 focus:border-[#bea55b] transition-all outline-none"
                                                     />
                                                 </div>
                                             </div>
@@ -666,7 +666,7 @@ export default function CheckoutPage() {
 
                                                     <div className="space-y-2.5">
                                                         <p>Al transferir, incluye en la descripción: <span className="font-bold text-slate-900">nombre del titular</span> y <span className="font-bold text-slate-900">número de orden</span>.</p>
-                                                        <p>Una vez realizado, envía tu comprobante a <a href="mailto:panama@kennethcolelatino.com" className="font-bold text-[#198754] hover:underline break-all">panama@kennethcolelatino.com</a> para iniciar la validación.</p>
+                                                        <p>Una vez realizado, envía tu comprobante a <a href="mailto:panama@kennethcolelatino.com" className="font-bold text-[#bea55b] hover:underline break-all">panama@kennethcolelatino.com</a> para iniciar la validación.</p>
                                                         <p>Tu pedido será procesado una vez confirmado el pago.</p>
                                                     </div>
                                                 </div>
@@ -699,7 +699,7 @@ export default function CheckoutPage() {
                                                 className={`transition-all duration-300 ${paymentMethod === 'CASH' ? 'border-t border-slate-200 bg-[#fafbfa] px-5 pb-5 pt-4' : 'bg-transparent'}`}
                                             >
                                                 <div className="flex gap-3 text-slate-600 text-[13.5px] leading-relaxed">
-                                                    <Truck className="text-[#198754] shrink-0 mt-0.5" size={16} />
+                                                    <Truck className="text-[#bea55b] shrink-0 mt-0.5" size={16} />
                                                     <p>
                                                         Realiza tu pago en efectivo o con tarjeta clave/crédito al repartidor al momento de recibir tu pedido en la puerta de tu hogar u oficina.
                                                     </p>
@@ -859,10 +859,10 @@ export default function CheckoutPage() {
                                         setShowAddressForm(false);
                                         setIsAddressModalOpen(false);
                                     }}
-                                    className={`p-5 pl-14 border-2 rounded-2xl cursor-pointer transition-all relative group ${idx === selectedAddressIndex ? 'border-[#198754] bg-[#198754]/5 shadow-md shadow-green-500/10' : 'border-slate-100 hover:border-[#198754]/40'}`}
+                                    className={`p-5 pl-14 border-2 rounded-2xl cursor-pointer transition-all relative group ${idx === selectedAddressIndex ? 'border-[#bea55b] bg-[#bea55b]/5 shadow-md shadow-green-500/10' : 'border-slate-100 hover:border-[#bea55b]/40'}`}
                                 >
-                                    <div className={`absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 flex items-center justify-center ${idx === selectedAddressIndex ? 'border-[#198754]' : 'border-slate-300'}`}>
-                                        {idx === selectedAddressIndex && <div className="w-2.5 h-2.5 bg-[#198754] rounded-full" />}
+                                    <div className={`absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 flex items-center justify-center ${idx === selectedAddressIndex ? 'border-[#bea55b]' : 'border-slate-300'}`}>
+                                        {idx === selectedAddressIndex && <div className="w-2.5 h-2.5 bg-[#bea55b] rounded-full" />}
                                     </div>
                                     
                                     <p className="font-black text-slate-900 mb-1">{addr.type || addr.title || 'Dirección'}</p>
@@ -879,7 +879,7 @@ export default function CheckoutPage() {
                                     // Limpiamos los campos para escribir uno nuevo
                                     setFormData(prev => ({ ...prev, address: '', city: '', phone: '' }));
                                 }}
-                                className="text-[#198754] font-bold text-sm tracking-wide hover:underline"
+                                className="text-[#bea55b] font-bold text-sm tracking-wide hover:underline"
                             >
                                 + Ingresar Manualmente
                             </button>
@@ -891,3 +891,4 @@ export default function CheckoutPage() {
         </div>
     );
 }
+

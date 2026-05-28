@@ -105,3 +105,4 @@ export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen
         </aside>
     );
 }
+

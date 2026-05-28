@@ -59,3 +59,4 @@ export async function GET(req: Request) {
         return NextResponse.json({ error: 'Failed to search products' }, { status: 500 });
     }
 }
+

@@ -26,10 +26,11 @@ export default function Loading() {
             
             <div className="fixed inset-0 pointer-events-none flex items-center justify-center">
                 <div className="bg-white/80 backdrop-blur-sm px-8 py-4 rounded-full shadow-2xl border border-white flex items-center gap-3 animate-bounce">
-                    <Search className="text-[#198754] animate-spin" size={20} />
-                    <span className="font-black text-[#198754] uppercase tracking-widest text-[12px]">Buscando...</span>
+                    <Search className="text-[#bea55b] animate-spin" size={20} />
+                    <span className="font-black text-[#bea55b] uppercase tracking-widest text-[12px]">Buscando...</span>
                 </div>
             </div>
         </div>
     );
 }
+

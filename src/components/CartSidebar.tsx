@@ -56,7 +56,7 @@ export function CartSidebar() {
                                 </div>
                                 <button
                                     onClick={() => setCartOpen(false)}
-                                    className="w-full bg-[#198754] text-white py-4 rounded-[5px] font-bold text-sm hover:bg-[#146c43] transition-all shadow-lg shadow-green-500/20 active:scale-[0.98] flex items-center justify-center gap-3"
+                                    className="w-full bg-[#bea55b] text-white py-4 rounded-[5px] font-bold text-sm hover:bg-[#146c43] transition-all shadow-lg shadow-green-500/20 active:scale-[0.98] flex items-center justify-center gap-3"
                                 >
                                     Continuar comprando
                                 </button>
@@ -75,12 +75,12 @@ export function CartSidebar() {
                                     </div>
                                     <div className="flex flex-col flex-grow justify-between py-1">
                                         <div>
-                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#198754] transition-colors">
+                                            <h3 className="font-bold text-slate-900 text-[14px] leading-tight line-clamp-2 hover:text-[#bea55b] transition-colors">
                                                 <Link href={`/product/${item.id}`} onClick={() => setCartOpen(false)}>
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="text-[#198754] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                                            <p className="text-[#bea55b] font-bold mt-1 text-[15px]">${item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                         </div>
                                         <div className="flex items-center justify-between mt-auto">
                                             <div className="flex items-center gap-2 bg-green-50 rounded-lg p-1 border border-green-100">
@@ -134,7 +134,7 @@ export function CartSidebar() {
                                 <Link
                                     href="/checkout"
                                     onClick={() => setCartOpen(false)}
-                                    className="w-full h-14 bg-[#198754] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#146c43] transition-all shadow-xl active:scale-95"
+                                    className="w-full h-14 bg-[#bea55b] text-white rounded-[20px] font-bold flex items-center justify-center gap-3 hover:bg-[#146c43] transition-all shadow-xl active:scale-95"
                                 >
                                     PAGAR AHORA
                                     <ArrowRight size={20} />
@@ -153,3 +153,4 @@ export function CartSidebar() {
         </div>
     );
 }
+

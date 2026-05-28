@@ -27,7 +27,7 @@ export default function CartPage() {
                 </p>
                 <Link
                     href="/"
-                    className="bg-[#198754] text-white px-8 py-3 rounded-md font-bold hover:bg-slate-900 transition-colors"
+                    className="bg-[#bea55b] text-white px-8 py-3 rounded-md font-bold hover:bg-slate-900 transition-colors"
                 >
                     Ir a la tienda
                 </Link>
@@ -39,7 +39,7 @@ export default function CartPage() {
         <div className="bg-gray-50 min-h-screen py-8">
             <div className="max-w-[1200px] mx-auto px-4">
                 <h1 className="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3">
-                    <ShoppingBag className="text-[#198754]" />
+                    <ShoppingBag className="text-[#bea55b]" />
                     Carrito de Compras ({totalItems})
                 </h1>
 
@@ -59,11 +59,11 @@ export default function CartPage() {
 
                                 <div className="flex-1 min-w-0">
                                     <Link href={`/product/${item.id}`}>
-                                        <h3 className="font-bold text-gray-800 text-[16px] truncate hover:text-[#198754] transition-colors cursor-pointer">
+                                        <h3 className="font-bold text-gray-800 text-[16px] truncate hover:text-[#bea55b] transition-colors cursor-pointer">
                                             {item.name}
                                         </h3>
                                     </Link>
-                                    <p className="text-[#198754] font-bold text-[16px] mt-1">
+                                    <p className="text-[#bea55b] font-bold text-[16px] mt-1">
                                         $ {item.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </p>
 
@@ -97,7 +97,7 @@ export default function CartPage() {
                             </div>
                         ))}
 
-                        <Link href="/" className="inline-flex items-center gap-2 text-[#198754] font-bold hover:underline mt-4">
+                        <Link href="/" className="inline-flex items-center gap-2 text-[#bea55b] font-bold hover:underline mt-4">
                             <ArrowLeft size={18} />
                             Continuar Comprando
                         </Link>
@@ -119,11 +119,11 @@ export default function CartPage() {
                                 </div>
                                 <div className="border-t pt-4 flex justify-between">
                                     <span className="text-lg font-bold text-gray-800">Total</span>
-                                    <span className="text-2xl font-extrabold text-[#198754]">$ {totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                                    <span className="text-2xl font-extrabold text-[#bea55b]">$ {totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                 </div>
                             </div>
 
-                            <button className="w-full bg-[#198754] text-white py-4 rounded-xl font-bold text-lg hover:bg-slate-900 transition-all shadow-lg hover:shadow-xl active:scale-[0.98] mb-4">
+                            <button className="w-full bg-[#bea55b] text-white py-4 rounded-xl font-bold text-lg hover:bg-slate-900 transition-all shadow-lg hover:shadow-xl active:scale-[0.98] mb-4">
                                 Finalizar Compra
                             </button>
 
@@ -137,3 +137,4 @@ export default function CartPage() {
         </div>
     );
 }
+

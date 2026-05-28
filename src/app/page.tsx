@@ -69,7 +69,7 @@ export default async function Home() {
             <h2 className="text-[16px] md:text-[22px] font-lato m-0 font-semibold text-slate-900 tracking-tighter capitalize border-[#dfdfdf]">Novedades Destacadas</h2>
 
           </div>
-          <button className="bg-[#e1cb8a] hover:bg-[#e1cb8a] text-white px-[12px] py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-[#198754]/10 active:scale-95 uppercase tracking-widest">
+          <button className="bg-[#e1cb8a] hover:bg-[#e1cb8a] text-white px-[12px] py-3 text-sm font-black rounded-[5px] transition-all shadow-lg shadow-[#bea55b]/10 active:scale-95 uppercase tracking-widest">
             Ver Todos
           </button>
         </div>
@@ -77,7 +77,7 @@ export default async function Home() {
         {/* Grilla de Productos (Server Component) */}
         <Suspense fallback={
           <div className="py-20 text-center text-slate-400 font-bold uppercase tracking-widest text-[12px] flex items-center justify-center gap-3">
-            <div className="w-5 h-5 border-2 border-[#198754] border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-5 h-5 border-2 border-[#bea55b] border-t-transparent rounded-full animate-spin"></div>
             Cargando Novedades...
           </div>
         }>
@@ -90,4 +90,5 @@ export default async function Home() {
     </>
   );
 }
+
 
