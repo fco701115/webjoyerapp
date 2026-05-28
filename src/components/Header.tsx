@@ -68,9 +68,9 @@ export function Header() {
                         >
                             <Menu size={28} />
                         </div>
-                         <Link href="/" prefetch={true} className="flex items-center gap-2">
-                             <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
-                         </Link>
+<Link href="/" prefetch={true} className="flex items-center gap-2">
+                              <img src="/Logo-joye.png" alt="Logo" className="h-10 w-auto" />
+                          </Link>
                     </div>
 
                     <div className="flex md:hidden items-center gap-4">

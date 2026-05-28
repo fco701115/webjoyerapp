@@ -13,13 +13,12 @@ export function Footer() {
                         <div className="flex flex-col items-center lg:items-start gap-3">
 <div className="flex items-center gap-2 justify-center lg:justify-start">
                                 <Image
-                                    src="/logo-joye.png"
+                                    src="/Logo-joye.png"
                                     alt="Logo"
                                     width={32}
                                     height={32}
                                     className="w-8 h-8 object-contain"
                                 />
-                                <span className="text-3xl font-extrabold text-[#f15922]">Webshopapp</span>
                             </div>
                             <div className="text-[15px] md:text-[13px] text-[#bea55b] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
                                 Kalala Bondor Bauphal Patuakhali
