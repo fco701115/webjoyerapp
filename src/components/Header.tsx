@@ -58,8 +58,8 @@ export function Header() {
     const favCount = mounted ? wishlistCount : 0;
 
     return (
-        <div className="bg-white border-b border-gray-100 sticky top-0 z-[1000]">
-            <div className="max-w-[1200px] mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+<div className="bg-white border-b border-gray-100 sticky top-0 z-[1000]">
+            <div className="max-w-[1200px] mx-auto px-4 py-[16px] flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                 <div className="flex w-full md:w-auto items-center justify-between md:justify-start gap-2">
                     <div className="flex items-center gap-3">
                         <div 
