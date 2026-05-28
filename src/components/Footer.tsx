@@ -11,13 +11,14 @@ export function Footer() {
                     <div className="flex flex-col items-center text-center gap-4 mb-10 lg:mb-0 lg:w-full lg:grid lg:grid-cols-4 lg:text-left lg:items-start">
 
                         <div className="flex flex-col items-center lg:items-start gap-3">
-<div className="flex items-center gap-2 justify-center lg:justify-start">
+<div className="flex items-center gap-3 justify-center lg:justify-start">
                                 <Image
                                     src="/Logo-joye.png"
                                     alt="Logo"
-                                    width={32}
-                                    height={32}
-                                    className="w-8 h-8 object-contain"
+                                    width={48}
+                                    height={48}
+                                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                                    priority
                                 />
                             </div>
                             <div className="text-[15px] md:text-[13px] text-[#bea55b] font-medium max-w-[280px] lg:max-w-[200px] leading-relaxed">
